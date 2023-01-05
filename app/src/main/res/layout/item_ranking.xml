@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="15"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvPos"
+                style="@style/T12H18B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/px4"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Pos"
+                android:textColor="@color/ink_5" />
+
+            <View
+                android:layout_width="@dimen/px1"
+                android:layout_height="match_parent"
+                android:background="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvName"
+                style="@style/T12H18B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/px8"
+                android:text="Team"
+                android:textColor="@color/ink_5" />
+
+            <View
+                android:layout_width="@dimen/px1"
+                android:layout_height="match_parent"
+                android:background="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvDD"
+                style="@style/T12H18B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="ĐĐ"
+                android:textColor="@color/ink_5" />
+
+            <View
+                android:layout_width="@dimen/px1"
+                android:layout_height="match_parent"
+                android:background="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvWins"
+                style="@style/T12H18B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="W"
+                android:textColor="@color/ink_5" />
+
+            <View
+                android:layout_width="@dimen/px1"
+                android:layout_height="match_parent"
+                android:background="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvLost"
+                style="@style/T12H18B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="L"
+                android:textColor="@color/ink_5" />
+
+            <View
+                android:layout_width="@dimen/px1"
+                android:layout_height="match_parent"
+                android:background="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvBT"
+                style="@style/T12H18B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="BT"
+                android:textColor="@color/ink_5" />
+
+            <View
+                android:layout_width="@dimen/px1"
+                android:layout_height="match_parent"
+                android:background="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvSBT"
+                style="@style/T12H18B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="SBT"
+                android:textColor="@color/ink_5" />
+
+            <View
+                android:layout_width="@dimen/px1"
+                android:layout_height="match_parent"
+                android:background="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvHS"
+                style="@style/T12H18B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="HS"
+                android:textColor="@color/ink_5" />
+
+            <View
+                android:layout_width="@dimen/px1"
+                android:layout_height="match_parent"
+                android:background="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvPoint"
+                style="@style/T12H18B"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="P"
+                android:textColor="@color/ink_5" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px0.5"
+            android:background="@color/ink_5" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

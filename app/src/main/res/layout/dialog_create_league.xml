@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_jx_5"
+            android:paddingHorizontal="@dimen/px16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvTitle"
+                style="@style/T20H28B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px16"
+                android:text="@string/create_league"
+                android:textColor="@color/ink_5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvName"
+                style="@style/T16H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px16"
+                android:text="@string/league"
+                android:textColor="@color/ink_5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/etTurn"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+            <com.jarvis.design_system.textview.CustomEditText
+                android:id="@+id/etName"
+                style="@style/T14H20M"
+                android:layout_width="@dimen/px100"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_jx_5"
+                android:hint="My League"
+                android:paddingStart="@dimen/px8"
+                android:textColor="@color/ink_5"
+                android:textColorHint="@color/ink_3"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvName"
+                app:layout_constraintLeft_toRightOf="@+id/tvName"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvTurn"
+                style="@style/T16H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px8"
+                android:text="@string/format"
+                android:textColor="@color/ink_5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/etTurn"
+                app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+            <com.jarvis.design_system.textview.CustomEditText
+                android:id="@+id/etTurn"
+                style="@style/T14H20M"
+                android:layout_width="@dimen/px100"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_jx_5"
+                android:digits="12"
+                android:inputType="number"
+                android:paddingStart="@dimen/px8"
+                android:text="2"
+                android:textColor="@color/ink_5"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvTurn"
+                app:layout_constraintLeft_toRightOf="@+id/tvTurn"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvWin"
+                style="@style/T16H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px8"
+                android:text="@string/point_win_match"
+                android:textColor="@color/ink_5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/etTurn"
+                app:layout_constraintTop_toBottomOf="@+id/tvTurn" />
+
+            <com.jarvis.design_system.textview.CustomEditText
+                android:id="@+id/etWin"
+                style="@style/T14H20M"
+                android:layout_width="@dimen/px100"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_jx_5"
+                android:digits="1234567890"
+                android:inputType="number"
+                android:maxLength="1"
+                android:paddingStart="@dimen/px8"
+                android:text="3"
+                android:textColor="@color/ink_5"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvWin"
+                app:layout_constraintLeft_toRightOf="@+id/tvTurn"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvDraw"
+                style="@style/T16H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px8"
+                android:text="@string/point_draw_match"
+                android:textColor="@color/ink_5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/etTurn"
+                app:layout_constraintTop_toBottomOf="@+id/tvWin" />
+
+            <com.jarvis.design_system.textview.CustomEditText
+                android:id="@+id/etDraw"
+                style="@style/T14H20M"
+                android:layout_width="@dimen/px100"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_jx_5"
+                android:digits="1234567890"
+                android:inputType="number"
+                android:maxLength="1"
+                android:paddingStart="@dimen/px8"
+                android:text="1"
+                android:textColor="@color/ink_5"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvDraw"
+                app:layout_constraintLeft_toRightOf="@+id/tvTurn"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvLose"
+                style="@style/T16H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px8"
+                android:text="@string/point_lose_match"
+                android:textColor="@color/ink_5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/etTurn"
+                app:layout_constraintTop_toBottomOf="@+id/tvDraw" />
+
+            <com.jarvis.design_system.textview.CustomEditText
+                android:id="@+id/etLose"
+                style="@style/T14H20M"
+                android:layout_width="@dimen/px100"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_jx_5"
+                android:digits="1234567890"
+                android:inputType="number"
+                android:maxLength="1"
+                android:paddingStart="@dimen/px8"
+                android:text="0"
+                android:textColor="@color/ink_5"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvLose"
+                app:layout_constraintLeft_toRightOf="@+id/tvLose"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <com.jarvis.design_system.button.JxButton
+                android:id="@+id/btCreate"
+                style="@style/ButtonPrimary.SizeS"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/px16"
+                android:layout_marginTop="@dimen/px20"
+                android:layout_marginBottom="@dimen/px16"
+                android:paddingHorizontal="@dimen/px16"
+                android:text="@string/create"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/btCancel"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLose" />
+
+            <com.jarvis.design_system.button.JxButton
+                android:id="@+id/btCancel"
+                style="@style/ButtonPrimary.SizeS"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/px20"
+                android:layout_marginBottom="@dimen/px16"
+                android:paddingHorizontal="@dimen/px16"
+                android:text="@string/cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/btCreate"
+                app:layout_constraintTop_toBottomOf="@+id/tvLose" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

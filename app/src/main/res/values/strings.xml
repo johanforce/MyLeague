@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">MyLeague</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_create">Create new one</string>
+    <string name="hint_enter_title_here">Enter title here</string>
+    <string name="hint_enter_description">Enter description</string>
+    <string name="text_count">Todo count: %d</string>
+
+    <string name="create">Create</string>
+    <string name="load">Load</string>
+    <string name="league">League</string>
+    <string name="fixtures">Fixtures</string>
+    <string name="pos">Pos</string>
+    <string name="team">Team</string>
+    <string name="rank_round">G</string>
+    <string name="rank_w">W</string>
+    <string name="rank_d">D</string>
+    <string name="rank_l">L</string>
+    <string name="rank_gf">GF</string>
+    <string name="rank_ga">GA</string>
+    <string name="rank_gd">GD</string>
+    <string name="cancel">Cancel</string>
+    <string name="rank_pts">PTS</string>
+    <string name="add_team">Add Team</string>
+    <string name="enter_team">Enter Team Name</string>
+    <string name="create_league">Create League</string>
+    <string name="load_league">Choose League</string>
+    <string name="week_data">Week %s</string>
+    <string name="double_round">Double Round-robin</string>
+    <string name="single_round">Single Round-robin</string>
+    <string name="format">Round-robin:</string>
+    <string name="point_win_match">Point Win Per Match:</string>
+    <string name="point_draw_match">Point Draw Per Match:</string>
+    <string name="point_lose_match">Point Lose Per Match:</string>
+
+
+</resources>

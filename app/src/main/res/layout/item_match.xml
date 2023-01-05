@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/llData"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="13">
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvHome"
+                style="@style/T14H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/px4"
+                android:layout_marginStart="@dimen/px16"
+                android:layout_marginEnd="@dimen/px16"
+                android:layout_weight="5"
+                android:maxLength="40"
+                android:textColor="@color/ink_5"
+                tools:text="Manchester United" />
+
+            <com.jarvis.design_system.textview.CustomEditText
+                android:id="@+id/etScoreHome"
+                style="@style/T14H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/bg_jx_5"
+                android:gravity="center"
+                android:inputType="text"
+                android:maxLength="40"
+                android:text="0"
+                android:textColor="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                style="@style/T14H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-" />
+
+            <com.jarvis.design_system.textview.CustomEditText
+                android:id="@+id/etScoreAway"
+                style="@style/T14H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/bg_jx_5"
+                android:gravity="center"
+                android:inputType="text"
+                android:maxLength="40"
+                android:text="0"
+                android:textColor="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvAway"
+                style="@style/T14H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px16"
+                android:layout_marginEnd="@dimen/px16"
+                android:layout_weight="5"
+                android:maxLength="40"
+                android:textColor="@color/ink_5"
+                tools:text="Manchester United" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.jarvis.design_system.textview.CustomTextView
+            android:id="@+id/tvWeek"
+            style="@style/T14H20M"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/px8"
+            android:layout_marginStart="@dimen/px16"
+            android:text="Tuần 11"
+            android:textColor="@color/ink_5" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:background="@color/ink_5" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.jarvis.design_system.textview.CustomEditText
+            android:id="@+id/etTeam"
+            style="@style/T14H20M"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px16"
+            android:layout_marginEnd="@dimen/px16"
+            android:background="@color/white"
+            android:hint="@string/enter_team"
+            android:maxLength="40"
+            android:maxLines="1"
+            android:inputType="text"
+            android:paddingVertical="@dimen/px8"
+            android:textColor="@color/ink_5"
+            app:layout_constraintBottom_toBottomOf="@+id/btAdd"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btAdd"
+            app:layout_constraintTop_toTopOf="@+id/btAdd" />
+
+        <com.jarvis.design_system.button.JxButton
+            android:id="@+id/btAdd"
+            style="@style/ButtonPrimary.SizeS"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/px16"
+            android:layout_marginEnd="@dimen/px16"
+            android:paddingHorizontal="@dimen/px16"
+            android:text="@string/add_team"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/px16"
+            android:layout_marginTop="@dimen/px16"
+            android:layout_marginBottom="@dimen/px16"
+            android:background="@drawable/bg_round_8"
+            app:layout_constraintBottom_toTopOf="@+id/btCreate"
+            app:layout_constraintTop_toBottomOf="@+id/btAdd">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvMyMedication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="200"
+                tools:listitem="@layout/item_select" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.jarvis.design_system.button.JxButton
+            android:id="@+id/btCreate"
+            style="@style/ButtonPrimary.SizeS"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/px16"
+            android:layout_marginEnd="@dimen/px16"
+            android:layout_marginBottom="@dimen/px16"
+            android:paddingHorizontal="@dimen/px16"
+            android:text="@string/create_league"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

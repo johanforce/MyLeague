@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemView"
+        android:focusable="true"
+        android:clickable="true">
+
+        <com.jarvis.design_system.textview.CustomTextView
+            android:id="@+id/tvName"
+            style="@style/T14H20M"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px16"
+            android:layout_marginEnd="@dimen/px16"
+            android:maxLength="40"
+            android:textColor="@color/ink_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:paddingVertical="@dimen/px8"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Manchester United" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px0.5"
+            android:background="@color/pri_5"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
