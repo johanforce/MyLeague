@@ -29,4 +29,6 @@ data class TeamModel(
     var hs: Int? = 0,
     @ColumnInfo(name = "points")
     var points: Int? = 0,
+    @ColumnInfo(name = "logo")
+    var logo: Int? = 0,
 )

@@ -5,7 +5,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/bg_02">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/llTable"
@@ -13,154 +14,110 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="15"
+            android:layout_marginTop="@dimen/px16"
+            android:layout_marginHorizontal="@dimen/px12"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tvPos"
-                style="@style/T12H18B"
+                style="@style/T12H18M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/pos"
-                android:textColor="@color/ink_5" />
-
-            <View
-                android:layout_width="@dimen/px1"
-                android:layout_height="match_parent"
-                android:background="@color/ink_5" />
+                android:textColor="@color/ink_3" />
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tvName"
-                style="@style/T12H18B"
+                style="@style/T12H18M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:gravity="left"
                 android:paddingLeft="@dimen/px8"
                 android:text="@string/team"
-                android:textColor="@color/ink_5" />
-
-            <View
-                android:layout_width="@dimen/px1"
-                android:layout_height="match_parent"
-                android:background="@color/ink_5" />
+                android:textColor="@color/ink_3" />
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tv"
-                style="@style/T12H18B"
+                style="@style/T12H18M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/rank_round"
-                android:textColor="@color/ink_5" />
-
-            <View
-                android:layout_width="@dimen/px1"
-                android:layout_height="match_parent"
-                android:background="@color/ink_5" />
+                android:textColor="@color/ink_3" />
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tvWins"
-                style="@style/T12H18B"
+                style="@style/T12H18M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/rank_w"
-                android:textColor="@color/ink_5" />
-
-            <View
-                android:layout_width="@dimen/px1"
-                android:layout_height="match_parent"
-                android:background="@color/ink_5" />
+                android:textColor="@color/ink_3" />
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tvLost"
-                style="@style/T12H18B"
+                style="@style/T12H18M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/rank_l"
-                android:textColor="@color/ink_5" />
-
-            <View
-                android:layout_width="@dimen/px1"
-                android:layout_height="match_parent"
-                android:background="@color/ink_5" />
+                android:textColor="@color/ink_3" />
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tvBT"
-                style="@style/T12H18B"
+                style="@style/T12H18M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/rank_gf"
-                android:textColor="@color/ink_5" />
-
-            <View
-                android:layout_width="@dimen/px1"
-                android:layout_height="match_parent"
-                android:background="@color/ink_5" />
+                android:textColor="@color/ink_3" />
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tvSBT"
-                style="@style/T12H18B"
+                style="@style/T12H18M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/rank_ga"
-                android:textColor="@color/ink_5" />
-
-            <View
-                android:layout_width="@dimen/px1"
-                android:layout_height="match_parent"
-                android:background="@color/ink_5" />
-
+                android:textColor="@color/ink_3" />
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tvHS"
-                style="@style/T12H18B"
+                style="@style/T12H18M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/rank_gd"
-                android:textColor="@color/ink_5" />
-
-            <View
-                android:layout_width="@dimen/px1"
-                android:layout_height="match_parent"
-                android:background="@color/ink_5" />
+                android:textColor="@color/ink_3" />
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tvPoint"
-                style="@style/T12H18B"
+                style="@style/T12H18M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/rank_pts"
-                android:textColor="@color/ink_5" />
+                android:textColor="@color/ink_3" />
         </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/px1"
-            android:background="@color/ink_5"
-            app:layout_constraintTop_toBottomOf="@+id/llTable" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvMyMedication"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="@dimen/px8"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="TabItemRegular">
-        <item name="tabTextColor">@color/ink_3</item>
+        <item name="tabTextColor">@color/ink_5</item>
         <item name="tabSelectedTextColor">@color/pri_1</item>
         <item name="tabInlineLabel">true</item>
         <item name="tabIndicatorHeight">@dimen/px2</item>

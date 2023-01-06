@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.google.android.material.tabs.TabLayout
-import com.jarvis.myleague.ui.league.adapter.SlideAdapter
+import com.jarvis.design_system.toolbar.JxToolbar
 import com.jarvis.myleague.databinding.ActivityLeagueBinding
 import com.jarvis.myleague.ui.base.BaseActivity
+import com.jarvis.myleague.ui.league.adapter.SlideAdapter
 
 class LeagueActivity :
     BaseActivity<ActivityLeagueBinding, LeagueViewModel>(
@@ -22,8 +23,10 @@ class LeagueActivity :
     var tabIndex = 0
     private val fragmentLeague = 0
     private val fragmentFixtures = 1
+    private val fragmentTeam = 2
     private var tabLeague: TabLayout.Tab? = null
     private var tabFixtures: TabLayout.Tab? = null
+    private var tabTeam: TabLayout.Tab? = null
     private val fragments: MutableList<Fragment> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,9 +34,9 @@ class LeagueActivity :
         binding.lifecycleOwner = this
     }
 
-//    override fun getToolbar(): JxToolbar {
-//        return binding.toolbar
-//    }
+    override fun getToolbar(): JxToolbar {
+        return binding.toolbar
+    }
 
     override fun setUpViews() {
         super.setUpViews()
@@ -49,9 +52,11 @@ class LeagueActivity :
     private fun setupViewPager() {
         val leagueFragment = LeagueFragment()
         val fixturesFragment = FixturesFragment()
+        val teamFragment = TeamFragment()
         this.fragments.add(leagueFragment)
         this.fragments.add(fixturesFragment)
-        binding.viewPager.offscreenPageLimit = 2
+        this.fragments.add(teamFragment)
+        binding.viewPager.offscreenPageLimit = 3
         val adapter = SlideAdapter(
             supportFragmentManager,
             FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
@@ -62,6 +67,8 @@ class LeagueActivity :
             binding.viewTab.getTabAt(fragmentLeague)
         this.tabFixtures =
             binding.viewTab.getTabAt(fragmentFixtures)
+        this.tabTeam =
+            binding.viewTab.getTabAt(fragmentTeam)
         binding.viewPager.currentItem = this.tabIndex
         setupTabLayout()
     }
@@ -70,6 +77,9 @@ class LeagueActivity :
         when (tabIndex) {
             fragmentLeague -> {
                 binding.viewTab.selectTab(tabLeague)
+            }
+            fragmentTeam -> {
+                binding.viewTab.selectTab(tabTeam)
             }
             else -> {
                 binding.viewTab.selectTab(tabFixtures)

@@ -7,5 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="black50">#80000000</color>
+
+    <color name="ml_black_bolt">#000000</color>
+    <color name="ml_black_thin">#555555</color>
+    <color name="ml_red_bolt">#BB0000</color>
+    <color name="ml_red_thin">#FF3333</color>
+    <color name="ml_blue_bolt">#0000DD</color>
+    <color name="ml_blue_thin">#3399FF</color>
+    <color name="ml_yellow">#FFCC33</color>
+    <color name="ml_siler">#CCCCCC</color>
+    <color name="ml_green_bolt">#336600</color>
+    <color name="ml_green_thin">#339900</color>
+    <color name="ml_violet">#9933FF</color>
+    <color name="ml_pink">#FF3399</color>
 </resources>

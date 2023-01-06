@@ -7,6 +7,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.jarvis.design_system.toolbar.JxToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toolbarHideDivider="true"
+            app:toolbarTitle="@string/league"
+            app:toolbarViewStyle="backTitle" />
+
         <com.jarvis.design_system.textview.CustomEditText
             android:id="@+id/etTeam"
             style="@style/T14H20M"
@@ -14,10 +25,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/px16"
             android:layout_marginEnd="@dimen/px16"
-            android:background="@color/white"
+            android:background="@drawable/bg_edit_text"
             android:hint="@string/enter_team"
             android:maxLength="40"
             android:maxLines="1"
+            android:paddingStart="@dimen/px4"
             android:inputType="text"
             android:paddingVertical="@dimen/px8"
             android:textColor="@color/ink_5"
@@ -35,7 +47,7 @@
             android:paddingHorizontal="@dimen/px16"
             android:text="@string/add_team"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

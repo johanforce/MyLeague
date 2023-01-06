@@ -2,6 +2,7 @@
 
 package com.jarvis.myleague.ui.base
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
@@ -10,6 +11,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.transition.platform.MaterialSharedAxis
@@ -59,6 +62,7 @@ abstract class BaseActivity<B : ViewBinding, T : ViewModel>(val bindingFactory: 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         appPreference = AppPreference.getInstance()
         job = Job()
@@ -68,6 +72,11 @@ abstract class BaseActivity<B : ViewBinding, T : ViewModel>(val bindingFactory: 
         observeData()
         initCoroutineScope()
         setUpViews()
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+        super.attachBaseContext(newBase)
     }
 
     open fun setUpViews() {

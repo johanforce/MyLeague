@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemViews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/itemView"
-        android:focusable="true"
-        android:clickable="true">
+        android:clickable="true"
+        android:layout_marginTop="@dimen/px4"
+        android:layout_marginBottom="@dimen/px4"
+        android:background="@drawable/bg_round_i3"
+        android:focusable="true">
 
         <com.jarvis.design_system.textview.CustomTextView
             android:id="@+id/tvName"
@@ -18,17 +21,11 @@
             android:layout_marginStart="@dimen/px16"
             android:layout_marginEnd="@dimen/px16"
             android:maxLength="40"
+            android:paddingVertical="@dimen/px16"
             android:textColor="@color/ink_5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:paddingVertical="@dimen/px8"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Manchester United" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/px0.5"
-            android:background="@color/pri_5"
-            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

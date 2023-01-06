@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import com.jarvis.design_system.textview.CustomTextView
+import com.jarvis.design_system.toolbar.JxToolbar
 import com.jarvis.myleague.R
 import com.jarvis.myleague.common.click
 import com.jarvis.myleague.common.observe
@@ -24,6 +25,10 @@ class CreateTeamActivity :
             val tvName = itemView.findViewById<CustomTextView>(R.id.tvName)
             tvName.text = item
         }
+    }
+
+    override fun getToolbar(): JxToolbar? {
+        return binding.toolbar
     }
 
     override fun setUpViews() {
@@ -49,7 +54,7 @@ class CreateTeamActivity :
         }
 
         binding.btCreate.click {
-            if (viewModel.listTeam.isEmpty() || viewModel.listTeam.size <3) {
+            if (viewModel.listTeam.isEmpty() || viewModel.listTeam.size < 3) {
                 Toast.makeText(this, "Vui lòng thêm đội", Toast.LENGTH_SHORT).show()
                 return@click
             }
@@ -59,6 +64,7 @@ class CreateTeamActivity :
 
     private fun addTeam() {
         val textData = binding.etTeam.text.toString()
+        if (viewModel.listTeam.find { it == textData }?.isNotEmpty() == true) return
         if (textData.isNotEmpty()) {
             viewModel.listTeam.add(textData)
             adapter.submitList(viewModel.listTeam)

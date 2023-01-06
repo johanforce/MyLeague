@@ -2,6 +2,8 @@ package com.jarvis.myleague.ui.main
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.recyclerview.widget.RecyclerView
 import com.jarvis.design_system.button.JxButton
 import com.jarvis.design_system.textview.CustomEditText
@@ -21,6 +23,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity :
     BaseActivity<ActivityMainBinding, MainViewModel>(ActivityMainBinding::inflate) {
     private val viewModel: MainViewModel by viewModel()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun setUpViews() {
         super.setUpViews()
@@ -47,6 +53,18 @@ class MainActivity :
             val intent = Intent(this, CreateTeamActivity::class.java)
             intent.putExtra(ID_LEAGUE_CREATE, it)
             startActivity(intent)
+        }
+
+        observe(viewModel.listTeams){
+            if(it.isNullOrEmpty()){
+                val intent = Intent(this, CreateTeamActivity::class.java)
+                intent.putExtra(ID_LEAGUE_CREATE, viewModel.idLeagueLoadData)
+                startActivity(intent)
+            }else{
+                val intent = Intent(this, LeagueActivity::class.java)
+                intent.putExtra(ID_LEAGUE_CREATE, viewModel.idLeagueLoadData)
+                startActivity(intent)
+            }
         }
     }
 
@@ -115,9 +133,8 @@ class MainActivity :
         adapter.submitList(viewModel.listLeague)
 
         adapter.onItemClick = { itemView, item, _ ->
-            val intent = Intent(this, LeagueActivity::class.java)
-            intent.putExtra(ID_LEAGUE_CREATE, item.id)
-            startActivity(intent)
+            viewModel.idLeagueLoadData = item.id
+            viewModel.getTeam(item.id)
             alertDialog.dismiss()
         }
 

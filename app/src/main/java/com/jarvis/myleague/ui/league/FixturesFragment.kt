@@ -18,6 +18,7 @@ class FixturesFragment :
     BaseFragment<FragmentFixturesBinding>(FragmentFixturesBinding::inflate) {
 
     private val viewModel: FixturesViewModel by viewModels()
+    var idLeague = 0L
 
     private val adapter by lazy {
         SimpleListAdapter<Matches>(R.layout.item_match) { itemView, item, _ ->
@@ -75,11 +76,16 @@ class FixturesFragment :
     }
 
     private fun initData() {
-        val idLeague = activity?.intent?.getLongExtra(AppPreferenceKey.ID_LEAGUE_CREATE, 0L) ?: 0L
+        idLeague = activity?.intent?.getLongExtra(AppPreferenceKey.ID_LEAGUE_CREATE, 0L) ?: 0L
         viewModel.getFixture(idLeague)
         viewModel.getTeam(idLeague)
         viewModel.getLeagueToId(idLeague)
         binding.rcvMyMedication.adapter = adapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getFixture(idLeague)
     }
 
     override fun observeData() {

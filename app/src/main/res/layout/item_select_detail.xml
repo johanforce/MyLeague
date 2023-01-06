@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemViews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginTop="@dimen/px4"
+        android:layout_marginBottom="@dimen/px4"
+        android:background="@drawable/bg_round_i3"
+        android:focusable="true">
+
+        <com.jarvis.design_system.textview.CustomTextView
+            android:id="@+id/tvName"
+            style="@style/T14H20M"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px16"
+            android:layout_marginEnd="@dimen/px16"
+            android:maxLength="40"
+            android:paddingVertical="@dimen/px8"
+            android:textColor="@color/ink_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/icLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Manchester United" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icLogo"
+            android:layout_width="@dimen/px40"
+            android:layout_height="@dimen/px40"
+            android:layout_marginVertical="@dimen/px8"
+            android:layout_marginStart="@dimen/px16"
+            android:paddingVertical="@dimen/px4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_security_black" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

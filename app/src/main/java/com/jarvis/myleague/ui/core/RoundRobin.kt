@@ -1,5 +1,6 @@
 package com.jarvis.myleague.ui.core
 
+import com.jarvis.myleague.R
 import com.jarvis.myleague.data.entities.Matches
 import com.jarvis.myleague.data.entities.TeamModel
 
@@ -64,11 +65,55 @@ object RoundRobin {
         }
         val listResult =
             listMatches.filter { it.teamAway?.isNotEmpty() == true && it.teamHome?.isNotEmpty() == true }
+
+        val round1 = listResult.map { it.copy() }
+        val round2 = listResult.map { it.copy() }
+        val maxSingle = round2[round2.size - 1].round
+        round2.forEach { it.round = it.round?.plus(maxSingle ?: 0) }
+
         val listDouble = mutableListOf<Matches>()
-        listDouble.addAll(listResult)
-        listDouble.addAll(listResult)
+        listDouble.addAll(round1)
+        listDouble.addAll(round2)
         return if (roundRobin == TurnEnum.TURN_1.value) listResult.toMutableList() else listDouble
     }
+
+    val listShieldLogo = listOf(
+        R.drawable.ic_angle_black,
+        R.drawable.ic_angle_black_thin,
+        R.drawable.ic_angle_blue,
+        R.drawable.ic_angle_blue_thin,
+        R.drawable.ic_angle_green,
+        R.drawable.ic_angle_green_thin,
+        R.drawable.ic_angle_pink,
+        R.drawable.ic_angle_red,
+        R.drawable.ic_angle_red_thin,
+        R.drawable.ic_angle_violet,
+        R.drawable.ic_angle_yellow,
+
+        R.drawable.ic_rosa_black,
+        R.drawable.ic_rosa_black_thin,
+        R.drawable.ic_rosa_blue,
+        R.drawable.ic_rosa_black_thin,
+        R.drawable.ic_rosa_red,
+        R.drawable.ic_rosa_red_thin,
+        R.drawable.ic_rosa_yellow,
+
+        R.drawable.ic_security_black,
+        R.drawable.ic_security_black_thin,
+        R.drawable.ic_security_blue,
+        R.drawable.ic_security_blue_thin,
+        R.drawable.ic_security_red,
+        R.drawable.ic_security_red_thin,
+        R.drawable.ic_security_yellow,
+
+        R.drawable.ic_shield_black,
+        R.drawable.ic_shield_black_thin,
+        R.drawable.ic_shield_blue,
+        R.drawable.ic_shield_blue_thin,
+        R.drawable.ic_shield_red,
+        R.drawable.ic_shield_red_thin,
+        R.drawable.ic_shield_yellow,
+    )
 }
 
 enum class StatusMatches(var valueStr: String, val value: Int) {

@@ -1,10 +1,12 @@
 package com.jarvis.myleague.ui.league
 
 import android.annotation.SuppressLint
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.viewModels
 import com.jarvis.design_system.textview.CustomTextView
 import com.jarvis.myleague.R
 import com.jarvis.myleague.common.observe
+import com.jarvis.myleague.common.setBackgroundTintColor
 import com.jarvis.myleague.data.entities.TeamModel
 import com.jarvis.myleague.databinding.FragmentLeagueBinding
 import com.jarvis.myleague.ui.base.BaseFragment
@@ -28,6 +30,7 @@ class LeagueFragment :
             val tvSBT = itemView.findViewById<CustomTextView>(R.id.tvSBT)
             val tvHS = itemView.findViewById<CustomTextView>(R.id.tvHS)
             val tvPoint = itemView.findViewById<CustomTextView>(R.id.tvPoint)
+            val icLogo = itemView.findViewById<AppCompatImageView>(R.id.icLogo)
             tvName.text = item.name
             tvPos.text = (position + 1).toString()
             tvDD.text = item.match.toString()
@@ -37,6 +40,13 @@ class LeagueFragment :
             tvSBT.text = item.sbt.toString()
             tvHS.text = item.hs.toString()
             tvPoint.text = item.points.toString()
+            icLogo.setImageResource(
+                if (item.logo != 0) item.logo ?: 0 else R.drawable.ic_security_black
+            )
+            if (position < 3) tvName.setBackgroundTintColor(R.color.ml_green_thin)
+            if (position > ((viewModel.listTeams.value?.size ?: 0) - 2)
+            ) tvName.setBackgroundTintColor(R.color.ml_siler)
+            else tvName.setBackgroundTintColor(R.color.ml_red_thin)
         }
     }
 
