@@ -61,6 +61,8 @@
                 android:textColor="@color/ink_5"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:maxLength="40"
+                android:singleLine="true"
                 android:textColorHint="@color/ink_3"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tvName"
                 app:layout_constraintLeft_toRightOf="@+id/tvName"

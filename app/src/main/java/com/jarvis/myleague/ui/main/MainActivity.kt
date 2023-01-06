@@ -1,9 +1,11 @@
 package com.jarvis.myleague.ui.main
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.os.Bundle
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jarvis.design_system.button.JxButton
 import com.jarvis.design_system.textview.CustomEditText
@@ -24,10 +26,6 @@ class MainActivity :
     BaseActivity<ActivityMainBinding, MainViewModel>(ActivityMainBinding::inflate) {
     private val viewModel: MainViewModel by viewModel()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun setUpViews() {
         super.setUpViews()
 
@@ -44,6 +42,10 @@ class MainActivity :
         binding.tvLoad.click {
             showLoadLeague()
         }
+
+        binding.root.click {
+            hideKeyboard(this)
+        }
     }
 
     override fun observeData() {
@@ -55,12 +57,12 @@ class MainActivity :
             startActivity(intent)
         }
 
-        observe(viewModel.listTeams){
-            if(it.isNullOrEmpty()){
+        observe(viewModel.listTeams) {
+            if (it.isNullOrEmpty()) {
                 val intent = Intent(this, CreateTeamActivity::class.java)
                 intent.putExtra(ID_LEAGUE_CREATE, viewModel.idLeagueLoadData)
                 startActivity(intent)
-            }else{
+            } else {
                 val intent = Intent(this, LeagueActivity::class.java)
                 intent.putExtra(ID_LEAGUE_CREATE, viewModel.idLeagueLoadData)
                 startActivity(intent)
@@ -80,6 +82,9 @@ class MainActivity :
         val etTurn = dialogView?.findViewById(R.id.etTurn) as? CustomEditText
         val etName = dialogView?.findViewById(R.id.etName) as? CustomEditText
         val btCancel = dialogView?.findViewById(R.id.btCancel) as? JxButton
+
+        etName?.requestFocus()
+        showKeyboard()
 
         val alertDialog = builder.create()
         alertDialog?.show()
@@ -106,6 +111,30 @@ class MainActivity :
 
         btCancel?.click {
             alertDialog.dismiss()
+            etName?.clearFocus()
+            hideKeyboard(this)
+        }
+
+        etLose?.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                if (etWin?.text.isNullOrEmpty() || etDraw?.text.isNullOrEmpty()
+                    || etLose.text.isNullOrEmpty() || etTurn?.text.isNullOrEmpty()
+                    || etName?.text.isNullOrEmpty()
+                ) return@setOnEditorActionListener true
+
+                alertDialog.dismiss()
+                viewModel.nameLeague = etName?.text.toString()
+                viewModel.createLeague(
+                    LeagueModel(
+                        name = etName?.text.toString(),
+                        pointWin = etWin?.text.toString().toInt(),
+                        pointDraw = etDraw?.text.toString().toInt(),
+                        pointLose = etLose?.text.toString().toInt(),
+                        turn = etTurn?.text.toString().toInt(),
+                    )
+                )
+            }
+            true
         }
     }
 
@@ -140,6 +169,24 @@ class MainActivity :
 
         btCancel?.click {
             alertDialog.dismiss()
+        }
+    }
+
+    fun showKeyboard() {
+        val inputMethodManager =
+            this.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+    }
+
+    fun hideKeyboard(activity: Activity) {
+        try {
+            val manager = activity.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            manager.hideSoftInputFromWindow(
+                activity.findViewById<View>(android.R.id.content).windowToken,
+                0
+            )
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }

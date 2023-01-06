@@ -21,9 +21,11 @@ class CreateTeamActivity :
     private val viewModel: CreateTeamViewModel by viewModel()
 
     private val adapter by lazy {
-        SimpleListAdapter<String>(R.layout.item_select) { itemView, item, position ->
+        SimpleListAdapter<String>(R.layout.item_select_create) { itemView, item, position ->
             val tvName = itemView.findViewById<CustomTextView>(R.id.tvName)
+            val tvSTT = itemView.findViewById<CustomTextView>(R.id.tvStt)
             tvName.text = item
+            tvSTT.text = (position + 1).toString()
         }
     }
 

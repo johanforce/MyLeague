@@ -9,27 +9,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.jarvis.design_system.textview.CustomTextView
+            android:id="@+id/tvTitle"
+            style="@style/T30H38B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/pri_5"
+            app:layout_constraintBottom_toTopOf="@+id/icLogo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icLogo"
+            android:layout_width="@dimen/px150"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_aff_championship" />
+
+
         <com.jarvis.design_system.button.JxButton
             android:id="@+id/tvCreate"
             style="@style/ButtonPrimary.SizeS"
             android:layout_width="wrap_content"
             android:layout_marginTop="@dimen/px40"
+            android:layout_marginBottom="@dimen/px20"
             android:paddingHorizontal="@dimen/px16"
             android:text="@string/create_league"
+            app:layout_constraintBottom_toTopOf="@+id/tvLoad"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintRight_toRightOf="parent" />
 
         <com.jarvis.design_system.button.JxButton
             android:id="@+id/tvLoad"
             style="@style/ButtonPrimary.SizeS"
             android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/px40"
+            android:layout_marginBottom="@dimen/px40"
             android:paddingHorizontal="@dimen/px16"
             android:text="@string/load"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCreate" />
+            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
