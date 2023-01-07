@@ -7,10 +7,10 @@
         android:id="@+id/itemViews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
         android:layout_marginTop="@dimen/px4"
         android:layout_marginBottom="@dimen/px4"
         android:background="@drawable/bg_round_i3"
+        android:clickable="true"
         android:focusable="true">
 
         <com.jarvis.design_system.textview.CustomTextView
@@ -27,5 +27,16 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Manchester United" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icDelete"
+            android:layout_width="@dimen/px40"
+            android:layout_height="@dimen/px40"
+            android:layout_marginEnd="@dimen/px8"
+            android:padding="@dimen/px8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_delete" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

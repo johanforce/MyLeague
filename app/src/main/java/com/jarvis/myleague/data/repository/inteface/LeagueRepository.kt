@@ -11,4 +11,6 @@ interface LeagueRepository {
     suspend fun getLeague(nameLeague: String): List<LeagueModel>
 
     suspend fun getLeagueToName(idLeague: Long): LeagueModel
+
+    suspend fun deleteLeagueToID(idLeague: Long)
 }

@@ -23,4 +23,8 @@ class LeagueRepositoryImpl(
     override suspend fun getLeagueToName(idLeague: Long): LeagueModel {
         return database.leagueDao().getLeagueToName(idLeague)
     }
+
+    override suspend fun deleteLeagueToID(idLeague: Long) {
+        database.leagueDao().deleteLeagueToID(idLeague)
+    }
 }

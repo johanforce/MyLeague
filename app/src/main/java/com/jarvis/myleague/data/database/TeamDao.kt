@@ -17,4 +17,7 @@ interface TeamDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTeams(teamModel: List<TeamModel?>)
+
+    @Query("DELETE FROM team where id_league = :idLeague")
+    suspend fun deleteLeagueToID(idLeague: Long)
 }

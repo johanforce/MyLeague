@@ -19,4 +19,8 @@ class MatchesRepositoryImpl(
     override suspend fun getMatchesToId(idTeam: Long): List<Matches> {
         return database.matchesDao().getMatchesToIdTeam(idTeam)
     }
+
+    override suspend fun deleteLeagueToID(idLeague: Long) {
+        database.matchesDao().deleteLeagueToID(idLeague)
+    }
 }

@@ -17,4 +17,7 @@ interface MatchesDao {
 
     @Query("SELECT * FROM matches WHERE id_team_away = :idTeam OR id_team_home = :idTeam")
     suspend fun getMatchesToIdTeam(idTeam: Long): List<Matches>
+
+    @Query("DELETE FROM matches where id_league = :idLeague")
+    suspend fun deleteLeagueToID(idLeague: Long)
 }

@@ -1,11 +1,10 @@
 package com.jarvis.myleague.ui.main
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.jarvis.design_system.button.JxButton
 import com.jarvis.design_system.textview.CustomEditText
@@ -26,6 +25,19 @@ class MainActivity :
     BaseActivity<ActivityMainBinding, MainViewModel>(ActivityMainBinding::inflate) {
     private val viewModel: MainViewModel by viewModel()
 
+    val adapterLoad by lazy {
+        SimpleListAdapter<LeagueModel>(R.layout.item_select) { itemView, item, _ ->
+            val tvName = itemView.findViewById<CustomTextView>(R.id.tvName)
+            val icDelete = itemView.findViewById(R.id.icDelete) as? AppCompatImageView
+
+            tvName.text = item.name
+            icDelete?.click {
+                viewModel.deleteLeagueWithId(item.id)
+            }
+        }
+    }
+
+
     override fun setUpViews() {
         super.setUpViews()
 
@@ -34,6 +46,14 @@ class MainActivity :
 
     private fun initView() {
         binding.tvCreate.click {
+            if ((viewModel.listLeague.value?.size ?: 0) >= 3) {
+                Toast.makeText(
+                    this,
+                    getString(R.string.out_of_limit_league),
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@click
+            }
             showCreateLeague()
         }
 
@@ -42,10 +62,11 @@ class MainActivity :
         binding.tvLoad.click {
             showLoadLeague()
         }
+    }
 
-        binding.root.click {
-            hideKeyboard(this)
-        }
+    override fun onResume() {
+        super.onResume()
+        viewModel.getLeague()
     }
 
     override fun observeData() {
@@ -68,6 +89,10 @@ class MainActivity :
                 startActivity(intent)
             }
         }
+
+        observe(viewModel.listLeague){
+            adapterLoad.submitList(it)
+        }
     }
 
     private fun showCreateLeague() {
@@ -84,7 +109,6 @@ class MainActivity :
         val btCancel = dialogView?.findViewById(R.id.btCancel) as? JxButton
 
         etName?.requestFocus()
-        showKeyboard()
 
         val alertDialog = builder.create()
         alertDialog?.show()
@@ -112,7 +136,6 @@ class MainActivity :
         btCancel?.click {
             alertDialog.dismiss()
             etName?.clearFocus()
-            hideKeyboard(this)
         }
 
         etLose?.setOnEditorActionListener { _, actionId, _ ->
@@ -129,7 +152,7 @@ class MainActivity :
                         name = etName?.text.toString(),
                         pointWin = etWin?.text.toString().toInt(),
                         pointDraw = etDraw?.text.toString().toInt(),
-                        pointLose = etLose?.text.toString().toInt(),
+                        pointLose = etLose.text.toString().toInt(),
                         turn = etTurn?.text.toString().toInt(),
                     )
                 )
@@ -151,17 +174,9 @@ class MainActivity :
         alertDialog?.show()
         alertDialog.setCancelable(false)
 
-        val adapter by lazy {
-            SimpleListAdapter<LeagueModel>(R.layout.item_select) { itemView, item, position ->
-                val tvName = itemView.findViewById<CustomTextView>(R.id.tvName)
-                tvName.text = item.name
-            }
-        }
+        recyclerView?.adapter = adapterLoad
 
-        recyclerView?.adapter = adapter
-        adapter.submitList(viewModel.listLeague)
-
-        adapter.onItemClick = { itemView, item, _ ->
+        adapterLoad.onItemClick = { itemView, item, _ ->
             viewModel.idLeagueLoadData = item.id
             viewModel.getTeam(item.id)
             alertDialog.dismiss()
@@ -169,24 +184,6 @@ class MainActivity :
 
         btCancel?.click {
             alertDialog.dismiss()
-        }
-    }
-
-    fun showKeyboard() {
-        val inputMethodManager =
-            this.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
-    }
-
-    fun hideKeyboard(activity: Activity) {
-        try {
-            val manager = activity.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            manager.hideSoftInputFromWindow(
-                activity.findViewById<View>(android.R.id.content).windowToken,
-                0
-            )
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
     }
 }

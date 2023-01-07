@@ -57,7 +57,15 @@ class CreateTeamActivity :
 
         binding.btCreate.click {
             if (viewModel.listTeam.isEmpty() || viewModel.listTeam.size < 3) {
-                Toast.makeText(this, "Vui lòng thêm đội", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.please_add_team), Toast.LENGTH_SHORT).show()
+                return@click
+            }
+            if (viewModel.listTeam.size == 20) {
+                Toast.makeText(
+                    this,
+                    getString(R.string.out_of_limit_team),
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@click
             }
             viewModel.createData()

@@ -45,6 +45,9 @@
     <string name="conceded_">Goals conceded: %s</string>
     <string name="last_five_">Last 5 matches:</string>
     <string name="schedule_">Schedule:</string>
+    <string name="out_of_limit_team">The allowable limit on the number of teams has been reached</string>
+    <string name="out_of_limit_league">The allowable limit on the number of leagues has been reached</string>
+    <string name="please_add_team">Please add team</string>
 
 
 </resources>

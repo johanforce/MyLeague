@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.jarvis.myleague.data.entities.LeagueModel
 import com.jarvis.myleague.data.entities.TeamModel
 import com.jarvis.myleague.data.repository.inteface.LeagueRepository
+import com.jarvis.myleague.data.repository.inteface.MatchesRepository
 import com.jarvis.myleague.data.repository.inteface.TeamRepository
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
@@ -14,9 +15,10 @@ import org.koin.core.component.inject
 class MainViewModel : ViewModel(), KoinComponent {
     private val leagueRepository: LeagueRepository by inject()
     private val teamRepository: TeamRepository by inject()
+    private val matchesRepository: MatchesRepository by inject()
 
     val isCreateSuccess = MutableLiveData<Boolean>()
-    var listLeague = listOf<LeagueModel>()
+    var listLeague = MutableLiveData<List<LeagueModel>>()
     var listTeams = MutableLiveData<List<TeamModel>>()
 
     var nameLeague = ""
@@ -24,7 +26,7 @@ class MainViewModel : ViewModel(), KoinComponent {
     var idLeagueLoadData = 0L
     val error = MutableLiveData<String>()
 
-    fun createLeague(league: LeagueModel)= viewModelScope.launch {
+    fun createLeague(league: LeagueModel) = viewModelScope.launch {
         try {
             leagueRepository.addLeague(league)
             idLeagueCreate.value = leagueRepository.getLeague(nameLeague).firstOrNull()?.id
@@ -35,7 +37,7 @@ class MainViewModel : ViewModel(), KoinComponent {
 
     fun getLeague() = viewModelScope.launch {
         try {
-            listLeague = leagueRepository.getLeagues()
+            listLeague.value = leagueRepository.getLeagues()
         } catch (e: Exception) {
             error.value = e.message
         }
@@ -44,6 +46,17 @@ class MainViewModel : ViewModel(), KoinComponent {
     fun getTeam(idLeague: Long) = viewModelScope.launch {
         try {
             listTeams.value = teamRepository.getTeams(idLeague)
+        } catch (e: Exception) {
+            error.value = e.message
+        }
+    }
+
+    fun deleteLeagueWithId(idLeague: Long) = viewModelScope.launch {
+        try {
+            teamRepository.deleteLeagueToID(idLeague)
+            leagueRepository.deleteLeagueToID(idLeague)
+            matchesRepository.deleteLeagueToID(idLeague)
+            getLeague()
         } catch (e: Exception) {
             error.value = e.message
         }

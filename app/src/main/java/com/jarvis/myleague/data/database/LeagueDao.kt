@@ -20,4 +20,7 @@ interface LeagueDao {
 
     @Query("SELECT * FROM league WHERE id = :idLeague")
     suspend fun getLeagueToName(idLeague: Long): LeagueModel
+
+    @Query("DELETE FROM league where id = :idLeague")
+    suspend fun deleteLeagueToID(idLeague: Long)
 }

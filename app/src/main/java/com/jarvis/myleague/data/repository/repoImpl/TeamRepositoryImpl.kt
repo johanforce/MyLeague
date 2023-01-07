@@ -19,4 +19,8 @@ class TeamRepositoryImpl(
     override suspend fun addTeams(listTeam: List<TeamModel?>) {
         return database.teamDao().insertTeams(listTeam)
     }
+
+    override suspend fun deleteLeagueToID(idLeague: Long) {
+        database.teamDao().deleteLeagueToID(idLeague)
+    }
 }

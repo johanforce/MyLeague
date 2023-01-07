@@ -9,4 +9,6 @@ interface MatchesRepository {
     suspend fun addMatches(listMatches: List<Matches>)
 
     suspend fun getMatchesToId(idTeam: Long): List<Matches>
+
+    suspend fun deleteLeagueToID(idLeague: Long)
 }
