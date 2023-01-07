@@ -9,10 +9,14 @@ class MatchesRepositoryImpl(
 ) : MatchesRepository {
 
     override suspend fun getMatches(idLeague: Long): List<Matches> {
-       return database.matchesDao().getMatches(idLeague)
+        return database.matchesDao().getMatches(idLeague)
     }
 
     override suspend fun addMatches(listMatches: List<Matches>) {
         database.matchesDao().insertMatches(listMatches)
+    }
+
+    override suspend fun getMatchesToId(idTeam: Long): List<Matches> {
+        return database.matchesDao().getMatchesToIdTeam(idTeam)
     }
 }

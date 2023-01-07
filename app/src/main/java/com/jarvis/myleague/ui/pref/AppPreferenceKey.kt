@@ -16,5 +16,6 @@ interface AppPreferenceKey {
         const val KEY_GRAPH= "KEY_GRAPH"
 
         const val ID_LEAGUE_CREATE= "ID_LEAGUE_CREATE"
+        const val ID_TEAM_CREATE= "ID_TEAM_CREATE"
     }
 }

@@ -6,5 +6,7 @@ interface TeamRepository {
 
     suspend fun getTeams(idLeague: Long): List<TeamModel>
 
+    suspend fun getTeamsToIdTeam(idTeam: Long): TeamModel
+
     suspend fun addTeams(listTeam: List<TeamModel?>)
 }

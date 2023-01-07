@@ -1,6 +1,7 @@
 package com.jarvis.myleague.ui.league
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.viewModels
 import com.jarvis.design_system.textview.CustomTextView
@@ -11,6 +12,8 @@ import com.jarvis.myleague.data.entities.TeamModel
 import com.jarvis.myleague.databinding.FragmentLeagueBinding
 import com.jarvis.myleague.ui.base.BaseFragment
 import com.jarvis.myleague.ui.base.adapter.SimpleListAdapter
+import com.jarvis.myleague.ui.create.CreateTeamActivity
+import com.jarvis.myleague.ui.detail_team.DetailTeamActivity
 import com.jarvis.myleague.ui.pref.AppPreferenceKey
 
 @SuppressLint("SetTextI18n")
@@ -59,6 +62,12 @@ class LeagueFragment :
         viewModel.getTeam(idLeague)
 
         binding.rcvMyMedication.adapter = adapter
+
+        adapter.onItemClick = { _, item, _ ->
+            val intent = Intent(activity, DetailTeamActivity::class.java)
+            intent.putExtra(AppPreferenceKey.ID_TEAM_CREATE, item.idTeam)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {

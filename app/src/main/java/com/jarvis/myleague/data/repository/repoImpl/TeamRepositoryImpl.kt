@@ -12,6 +12,10 @@ class TeamRepositoryImpl(
         return database.teamDao().getTeams(idLeague)
     }
 
+    override suspend fun getTeamsToIdTeam(idTeam: Long): TeamModel {
+        return database.teamDao().getTeamToId(idTeam)
+    }
+
     override suspend fun addTeams(listTeam: List<TeamModel?>) {
         return database.teamDao().insertTeams(listTeam)
     }

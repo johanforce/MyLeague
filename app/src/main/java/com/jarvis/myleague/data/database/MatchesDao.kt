@@ -14,4 +14,7 @@ interface MatchesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMatches(list: List<Matches>)
+
+    @Query("SELECT * FROM matches WHERE id_team_away = :idTeam OR id_team_home = :idTeam")
+    suspend fun getMatchesToIdTeam(idTeam: Long): List<Matches>
 }

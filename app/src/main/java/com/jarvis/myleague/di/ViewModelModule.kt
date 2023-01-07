@@ -1,6 +1,7 @@
 package com.jarvis.myleague.di
 
 import com.jarvis.myleague.ui.create.CreateTeamViewModel
+import com.jarvis.myleague.ui.detail_team.DetailTeamViewModel
 import com.jarvis.myleague.ui.league.FixturesViewModel
 import com.jarvis.myleague.ui.league.LeagueViewModel
 import com.jarvis.myleague.ui.league.TableViewModel
@@ -30,5 +31,9 @@ val viewModelModule = module {
 
     viewModel {
         TeamViewModel()
+    }
+
+    viewModel {
+        DetailTeamViewModel()
     }
 }

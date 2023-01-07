@@ -10,7 +10,7 @@
         android:clickable="true"
         android:layout_marginTop="@dimen/px4"
         android:layout_marginBottom="@dimen/px4"
-        android:background="@drawable/bg_round_i3"
+        android:background="@drawable/bg_round_i1"
         android:focusable="true">
 
         <com.jarvis.design_system.textview.CustomTextView

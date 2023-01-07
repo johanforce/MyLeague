@@ -1,5 +1,6 @@
 package com.jarvis.myleague.ui.core
 
+import com.jarvis.myleague.MainApplication
 import com.jarvis.myleague.R
 import com.jarvis.myleague.data.entities.Matches
 import com.jarvis.myleague.data.entities.TeamModel
@@ -113,14 +114,15 @@ object RoundRobin {
         R.drawable.ic_shield_red,
         R.drawable.ic_shield_red_thin,
         R.drawable.ic_shield_yellow,
-    )
+    ) + FlagKit.getListFlagResourceId(MainApplication.applicationContext())
 }
 
 enum class StatusMatches(var valueStr: String, val value: Int) {
     // no type
-    WIN("WIN", 0),
+    WIN("WIN", 3),
     DRAW("DRAW", 1),
-    LOSE("LOSE", 2)
+    LOSE("LOSE", 2),
+    NULL("NULL", 0)
 }
 
 enum class TurnEnum(var valueStr: String, val value: Int) {

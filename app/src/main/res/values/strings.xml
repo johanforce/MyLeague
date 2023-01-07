@@ -38,5 +38,13 @@
     <string name="point_draw_match">Point Draw Per Match:</string>
     <string name="point_lose_match">Point Lose Per Match:</string>
 
+    <string name="wins_">Wins: %s</string>
+    <string name="loses_">Lose: %s</string>
+    <string name="draw_">Draw: %s</string>
+    <string name="goals_">Goals: %s</string>
+    <string name="conceded_">Goals conceded: %s</string>
+    <string name="last_five_">Last 5 matches:</string>
+    <string name="schedule_">Schedule:</string>
+
 
 </resources>
