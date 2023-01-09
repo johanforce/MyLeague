@@ -85,7 +85,7 @@ fun View.setBackgroundTintColor(@ColorRes colorRes: Int) {
         ContextCompat.getColorStateList(context, colorRes)
 }
 
-fun CustomEditText.onChange(cb: (String) -> Unit) {
+fun CustomEditText.onAfterChange(cb: (String) -> Unit) {
     this.addTextChangedListener(object : TextWatcher {
         var contentBefore = ""
         override fun afterTextChanged(s: Editable?) {
@@ -101,6 +101,26 @@ fun CustomEditText.onChange(cb: (String) -> Unit) {
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             /*No trigger*/
+        }
+    })
+}
+
+fun CustomEditText.onChange(cb: (String) -> Unit) {
+    this.addTextChangedListener(object : TextWatcher {
+        var contentBefore = ""
+        override fun afterTextChanged(s: Editable?) {
+
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            contentBefore = s?.toString() ?: ""
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            val contentAfter = s?.toString() ?: ""
+            if (contentAfter != contentBefore) {
+                cb(contentAfter)
+            }
         }
     })
 }

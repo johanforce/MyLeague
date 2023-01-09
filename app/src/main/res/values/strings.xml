@@ -30,6 +30,8 @@
     <string name="create_league">Create League</string>
     <string name="edit_team">Edit Team</string>
     <string name="load_league">Choose League</string>
+    <string name="update_result">Update Result</string>
+    <string name="update">Update</string>
     <string name="week_data">Week %s</string>
     <string name="double_round">Double Round-robin</string>
     <string name="single_round">Single Round-robin</string>

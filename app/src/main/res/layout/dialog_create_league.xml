@@ -84,6 +84,7 @@
                 android:imeOptions="actionNext"
                 android:paddingStart="@dimen/px8"
                 android:text="2"
+                android:maxLength="1"
                 android:textColor="@color/ink_5"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tvTurn"
                 app:layout_constraintLeft_toRightOf="@+id/tvTurn"

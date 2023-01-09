@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jarvis.design_system.button.JxButton
 import com.jarvis.design_system.textview.CustomEditText
 import com.jarvis.design_system.textview.CustomTextView
+import com.jarvis.myleague.BuildConfig
 import com.jarvis.myleague.R
 import com.jarvis.myleague.common.click
 import com.jarvis.myleague.common.observe
@@ -45,6 +46,7 @@ class MainActivity :
     }
 
     private fun initView() {
+        binding.tvVersion.text = BuildConfig.VERSION_NAME
         binding.tvCreate.click {
             if ((viewModel.listLeague.value?.size ?: 0) >= 3) {
                 Toast.makeText(

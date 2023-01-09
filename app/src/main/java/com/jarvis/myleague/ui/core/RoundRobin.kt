@@ -2,10 +2,118 @@ package com.jarvis.myleague.ui.core
 
 import com.jarvis.myleague.MainApplication
 import com.jarvis.myleague.R
+import com.jarvis.myleague.data.entities.LeagueModel
 import com.jarvis.myleague.data.entities.Matches
 import com.jarvis.myleague.data.entities.TeamModel
 
 object RoundRobin {
+
+    fun updateResultMatch(
+        matches: Matches,
+        scoreHome: String,
+        scoreAway: String,
+        teamHome: TeamModel,
+        teamAway: TeamModel,
+        leagueCreate: LeagueModel
+    ): Triple<Matches, TeamModel, TeamModel> {
+        val scoreHomeOle = matches.scoreHome
+        val scoreAwayOld = matches.scoreAway
+
+        matches.scoreAway = if(scoreAway.isEmpty()) null else scoreAway.toInt()
+        matches.scoreHome = if(scoreHome.isEmpty()) null else scoreHome.toInt()
+
+        if (scoreAwayOld != null && scoreHomeOle != null) {
+
+            teamHome.apply {
+                val hsOld = scoreHomeOle - scoreAwayOld
+                this.match = this.match?.minus(1)
+                when {
+                    hsOld == 0 -> {
+                        this.draw = this.draw?.minus(1)
+                        this.points = this.points?.minus(leagueCreate.pointDraw)
+                    }
+                    hsOld < 0 -> {
+                        this.lost = this.lost?.minus(1)
+                    }
+                    else -> {
+                        this.win = this.win?.minus(1)
+                        this.points = this.points?.minus(leagueCreate.pointWin)
+                    }
+                }
+                this.hs = this.hs?.minus(hsOld)
+                this.bt = this.bt?.minus(scoreHomeOle)
+                this.sbt = this.sbt?.minus(scoreAwayOld)
+            }
+
+            teamAway.apply {
+                val hsOld = scoreAwayOld - scoreHomeOle
+                this.match = this.match?.minus(1)
+                when {
+                    hsOld == 0 -> {
+                        this.draw = this.draw?.minus(1)
+                        this.points = this.points?.minus(leagueCreate.pointDraw)
+                    }
+                    hsOld < 0 -> {
+                        this.lost = this.lost?.minus(1)
+                    }
+                    else -> {
+                        this.win = this.win?.minus(1)
+                        this.points = this.points?.minus(leagueCreate.pointWin)
+                    }
+                }
+                this.hs = this.hs?.minus(hsOld)
+                this.bt = this.bt?.minus(scoreAwayOld)
+                this.sbt = this.sbt?.minus(scoreHomeOle)
+            }
+        }
+
+
+        if (scoreAway.isNotEmpty() || scoreHome.isNotEmpty()) {
+            teamHome.apply {
+                val hs = scoreHome.toInt() - scoreAway.toInt()
+                this.match = this.match?.plus(1)
+                when {
+                    hs == 0 -> {
+                        this.draw = this.draw?.plus(1)
+                        this.points = this.points?.plus(leagueCreate.pointDraw)
+                    }
+                    hs < 0 -> {
+                        this.lost = this.lost?.plus(1)
+                    }
+                    else -> {
+                        this.win = this.win?.plus(1)
+                        this.points = this.points?.plus(leagueCreate.pointWin)
+                    }
+                }
+                this.hs = this.hs?.plus(hs)
+                this.bt = this.bt?.plus(scoreHome.toInt())
+                this.sbt = this.sbt?.plus(scoreAway.toInt())
+            }
+            teamAway.apply {
+                val hs = scoreAway.toInt() - scoreHome.toInt()
+                this.match = this.match?.plus(1)
+                when {
+                    hs == 0 -> {
+                        this.draw = this.draw?.plus(1)
+                        this.points = this.points?.plus(leagueCreate.pointDraw)
+                    }
+                    hs < 0 -> {
+                        this.lost = this.lost?.plus(1)
+                    }
+                    else -> {
+                        this.win = this.win?.plus(1)
+                        this.points = this.points?.plus(leagueCreate.pointWin)
+                    }
+                }
+                this.hs = this.hs?.plus(hs)
+                this.bt = this.bt?.plus(scoreAway.toInt())
+                this.sbt = this.sbt?.plus(scoreHome.toInt())
+            }
+        }
+
+        return Triple(matches, teamHome, teamAway)
+    }
+
 
     fun scheduler(teams: List<TeamModel>, idLeague: Long, roundRobin: Int): MutableList<Matches> {
         val listMatches = mutableListOf<Matches>()

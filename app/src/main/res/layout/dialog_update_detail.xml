@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_01"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvTitle"
+                style="@style/T20H28B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px16"
+                android:text="@string/update_result"
+                android:textColor="@color/ink_5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icHome"
+                android:layout_width="@dimen/px40"
+                android:layout_height="@dimen/px40"
+                android:layout_marginTop="@dimen/px20"
+                app:layout_constraintLeft_toLeftOf="@+id/tvHome"
+                app:layout_constraintRight_toRightOf="@+id/tvHome"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                app:srcCompat="@drawable/ic_security_black" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icAway"
+                android:layout_width="@dimen/px40"
+                android:layout_height="@dimen/px40"
+                android:layout_marginTop="@dimen/px20"
+                app:layout_constraintLeft_toLeftOf="@+id/tvAway"
+                app:layout_constraintRight_toRightOf="@+id/tvAway"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                app:srcCompat="@drawable/ic_security_black" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvHome"
+                style="@style/T14H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px16"
+                android:layout_marginTop="@dimen/px8"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLength="40"
+                android:maxLines="2"
+                android:textColor="@color/ink_5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/etScoreHome"
+                app:layout_constraintTop_toBottomOf="@+id/icHome"
+                tools:text="Manchester United" />
+
+            <com.jarvis.design_system.textview.CustomEditText
+                android:id="@+id/etScoreHome"
+                style="@style/T24H32B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px8"
+                android:layout_marginEnd="@dimen/px4"
+                android:layout_weight="2"
+                android:background="@drawable/bg_edit_text"
+                android:digits="0123456789"
+                android:gravity="center"
+                android:paddingVertical="@dimen/px8"
+                android:inputType="number"
+                android:maxLength="2"
+                android:minWidth="@dimen/px40"
+                android:paddingHorizontal="@dimen/px8"
+                android:text="00"
+                android:textColor="@color/ink_5"
+                app:layout_constraintTop_toTopOf="@+id/icHome"
+                app:layout_constraintBottom_toBottomOf="@+id/tvHome"
+                app:layout_constraintLeft_toRightOf="@+id/tvHome"
+                app:layout_constraintRight_toLeftOf="@+id/tvLine" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvLine"
+                style="@style/T30H38B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLength="40"
+                android:maxLines="2"
+                android:text="-"
+                android:textColor="@color/ink_5"
+                app:layout_constraintTop_toTopOf="@id/etScoreAway"
+                app:layout_constraintBottom_toBottomOf="@+id/etScoreAway"
+                app:layout_constraintLeft_toRightOf="@+id/etScoreHome"
+                app:layout_constraintRight_toLeftOf="@+id/etScoreAway" />
+
+            <com.jarvis.design_system.textview.CustomEditText
+                android:id="@+id/etScoreAway"
+                style="@style/T24H32B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px4"
+                android:layout_marginEnd="@dimen/px8"
+                android:layout_weight="2"
+                android:background="@drawable/bg_edit_text"
+                android:digits="0123456789"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="2"
+                android:paddingVertical="@dimen/px8"
+                android:paddingHorizontal="@dimen/px8"
+                android:text="00"
+                android:minWidth="@dimen/px40"
+                android:textColor="@color/ink_5"
+                app:layout_constraintTop_toTopOf="@+id/icHome"
+                app:layout_constraintBottom_toBottomOf="@+id/tvHome"
+                app:layout_constraintLeft_toRightOf="@+id/tvLine"
+                app:layout_constraintRight_toLeftOf="@+id/tvAway" />
+
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvAway"
+                style="@style/T14H20M"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/px16"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLength="40"
+                android:maxLines="2"
+                android:textColor="@color/ink_5"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvHome"
+                app:layout_constraintLeft_toRightOf="@+id/etScoreAway"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:text="Manchester United" />
+
+            <com.jarvis.design_system.button.JxButton
+                android:id="@+id/btCancel"
+                style="@style/ButtonPrimary.SizeS"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/px16"
+                android:layout_marginTop="@dimen/px16"
+                android:layout_marginEnd="@dimen/px16"
+                android:layout_marginBottom="@dimen/px16"
+                android:paddingHorizontal="@dimen/px16"
+                android:text="@string/cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/btUpdate"
+                app:layout_constraintTop_toBottomOf="@+id/tvAway" />
+
+            <com.jarvis.design_system.button.JxButton
+                android:id="@+id/btUpdate"
+                style="@style/ButtonPrimary.SizeS"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/px16"
+                android:layout_marginEnd="@dimen/px16"
+                android:layout_marginBottom="@dimen/px16"
+                android:paddingHorizontal="@dimen/px16"
+                android:text="@string/update_result"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/btCancel"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAway" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

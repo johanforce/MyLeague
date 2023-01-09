@@ -87,7 +87,9 @@ class DetailTeamActivity :
             binding.tvGoals.text = getString(R.string.goals_, it.bt.toString())
             binding.tvConceded.text = getString(R.string.conceded_, it.sbt.toString())
             binding.toolbar.setTitle(it.name)
-            binding.icLogo.setImageResource(it.logo ?: 0)
+            binding.icLogo.setImageResource(
+                if (it.logo != 0) it.logo ?: 0 else R.drawable.ic_security_black
+            )
         }
 
         observe(viewModel.error) {
