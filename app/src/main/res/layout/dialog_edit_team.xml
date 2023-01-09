@@ -10,7 +10,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/bg_jx_5"
+            android:background="@color/bg_01"
             android:paddingHorizontal="@dimen/px16"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -44,12 +44,12 @@
                 style="@style/T16H20M"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px16"
                 android:text="@string/team_"
                 android:textColor="@color/ink_5"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/etName"
-                app:layout_constraintTop_toBottomOf="@+id/icLogo" />
+                app:layout_constraintTop_toTopOf="@id/etName"
+                app:layout_constraintBottom_toBottomOf="@+id/etName"/>
 
             <com.jarvis.design_system.textview.CustomEditText
                 android:id="@+id/etName"
@@ -57,14 +57,17 @@
                 android:layout_width="0px"
                 android:layout_marginStart="@dimen/px16"
                 android:layout_height="wrap_content"
-                android:background="@color/bg_jx_5"
                 android:textColor="@color/ink_5"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:paddingStart="@dimen/px8"
+                android:layout_marginTop="@dimen/px16"
                 android:maxLength="40"
+                android:background="@drawable/bg_edit_text"
                 android:singleLine="true"
                 android:textColorHint="@color/ink_3"
-                app:layout_constraintBaseline_toBaselineOf="@+id/tvName"
+                android:paddingVertical="@dimen/px8"
+                app:layout_constraintTop_toBottomOf="@+id/icLogo"
                 app:layout_constraintLeft_toRightOf="@+id/tvName"
                 app:layout_constraintRight_toRightOf="parent" />
 

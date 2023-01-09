@@ -31,7 +31,7 @@
             android:maxLines="1"
             android:paddingStart="@dimen/px4"
             android:inputType="text"
-            android:paddingVertical="@dimen/px8"
+            android:paddingVertical="@dimen/px12"
             android:textColor="@color/ink_5"
             app:layout_constraintBottom_toBottomOf="@+id/btAdd"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -67,6 +67,7 @@ class FixturesFragment :
     override fun onResume() {
         super.onResume()
         viewModel.getFixture(idLeague)
+        viewModel.getTeam(idLeague)
     }
 
     override fun observeData() {

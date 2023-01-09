@@ -12,7 +12,6 @@ import com.jarvis.myleague.data.entities.TeamModel
 import com.jarvis.myleague.databinding.FragmentLeagueBinding
 import com.jarvis.myleague.ui.base.BaseFragment
 import com.jarvis.myleague.ui.base.adapter.SimpleListAdapter
-import com.jarvis.myleague.ui.create.CreateTeamActivity
 import com.jarvis.myleague.ui.detail_team.DetailTeamActivity
 import com.jarvis.myleague.ui.pref.AppPreferenceKey
 
@@ -29,6 +28,7 @@ class LeagueFragment :
             val tvDD = itemView.findViewById<CustomTextView>(R.id.tvDD)
             val tvWins = itemView.findViewById<CustomTextView>(R.id.tvWins)
             val tvLost = itemView.findViewById<CustomTextView>(R.id.tvLost)
+            val tvDraw = itemView.findViewById<CustomTextView>(R.id.tvDraw)
             val tvBT = itemView.findViewById<CustomTextView>(R.id.tvBT)
             val tvSBT = itemView.findViewById<CustomTextView>(R.id.tvSBT)
             val tvHS = itemView.findViewById<CustomTextView>(R.id.tvHS)
@@ -39,6 +39,7 @@ class LeagueFragment :
             tvDD.text = item.match.toString()
             tvWins.text = item.win.toString()
             tvLost.text = item.lost.toString()
+            tvDraw.text = item.draw.toString()
             tvBT.text = item.bt.toString()
             tvSBT.text = item.sbt.toString()
             tvHS.text = item.hs.toString()

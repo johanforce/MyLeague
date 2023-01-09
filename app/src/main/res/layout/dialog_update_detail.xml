@@ -76,17 +76,17 @@
                 android:background="@drawable/bg_edit_text"
                 android:digits="0123456789"
                 android:gravity="center"
-                android:paddingVertical="@dimen/px8"
                 android:inputType="number"
                 android:maxLength="2"
                 android:minWidth="@dimen/px40"
                 android:paddingHorizontal="@dimen/px8"
+                android:paddingVertical="@dimen/px8"
                 android:text="00"
                 android:textColor="@color/ink_5"
-                app:layout_constraintTop_toTopOf="@+id/icHome"
                 app:layout_constraintBottom_toBottomOf="@+id/tvHome"
                 app:layout_constraintLeft_toRightOf="@+id/tvHome"
-                app:layout_constraintRight_toLeftOf="@+id/tvLine" />
+                app:layout_constraintRight_toLeftOf="@+id/tvLine"
+                app:layout_constraintTop_toTopOf="@+id/icHome" />
 
             <com.jarvis.design_system.textview.CustomTextView
                 android:id="@+id/tvLine"
@@ -98,10 +98,10 @@
                 android:maxLines="2"
                 android:text="-"
                 android:textColor="@color/ink_5"
-                app:layout_constraintTop_toTopOf="@id/etScoreAway"
                 app:layout_constraintBottom_toBottomOf="@+id/etScoreAway"
                 app:layout_constraintLeft_toRightOf="@+id/etScoreHome"
-                app:layout_constraintRight_toLeftOf="@+id/etScoreAway" />
+                app:layout_constraintRight_toLeftOf="@+id/etScoreAway"
+                app:layout_constraintTop_toTopOf="@id/etScoreAway" />
 
             <com.jarvis.design_system.textview.CustomEditText
                 android:id="@+id/etScoreAway"
@@ -116,15 +116,15 @@
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="2"
-                android:paddingVertical="@dimen/px8"
-                android:paddingHorizontal="@dimen/px8"
-                android:text="00"
                 android:minWidth="@dimen/px40"
+                android:paddingHorizontal="@dimen/px8"
+                android:paddingVertical="@dimen/px8"
+                android:text="00"
                 android:textColor="@color/ink_5"
-                app:layout_constraintTop_toTopOf="@+id/icHome"
                 app:layout_constraintBottom_toBottomOf="@+id/tvHome"
                 app:layout_constraintLeft_toRightOf="@+id/tvLine"
-                app:layout_constraintRight_toLeftOf="@+id/tvAway" />
+                app:layout_constraintRight_toLeftOf="@+id/tvAway"
+                app:layout_constraintTop_toTopOf="@+id/icHome" />
 
 
             <com.jarvis.design_system.textview.CustomTextView
@@ -148,7 +148,7 @@
                 style="@style/ButtonPrimary.SizeS"
                 android:layout_width="0dp"
                 android:layout_marginStart="@dimen/px16"
-                android:layout_marginTop="@dimen/px16"
+                android:layout_marginTop="@dimen/px30"
                 android:layout_marginEnd="@dimen/px16"
                 android:layout_marginBottom="@dimen/px16"
                 android:paddingHorizontal="@dimen/px16"
@@ -156,7 +156,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/btUpdate"
-                app:layout_constraintTop_toBottomOf="@+id/tvAway" />
+                app:layout_constraintTop_toBottomOf="@+id/tvHome" />
 
             <com.jarvis.design_system.button.JxButton
                 android:id="@+id/btUpdate"
@@ -167,10 +167,10 @@
                 android:layout_marginBottom="@dimen/px16"
                 android:paddingHorizontal="@dimen/px16"
                 android:text="@string/update_result"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/btCancel"
                 app:layout_constraintLeft_toRightOf="@+id/btCancel"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvAway" />
+                app:layout_constraintTop_toTopOf="@+id/btCancel" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
