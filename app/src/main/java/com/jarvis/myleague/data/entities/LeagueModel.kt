@@ -20,5 +20,9 @@ data class LeagueModel(
     @ColumnInfo(name = "point_lose")
     val pointLose: Int = 0,
     @ColumnInfo(name = "turn")
-    val turn: Int = 0
+    val turn: Int = 0,
+    @ColumnInfo(name = "type")
+    var type: Int? = null,
+    @ColumnInfo(name = "teams")
+    var teams: Int? = null,
 )

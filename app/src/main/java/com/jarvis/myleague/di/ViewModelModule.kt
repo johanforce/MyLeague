@@ -1,5 +1,8 @@
 package com.jarvis.myleague.di
 
+import com.jarvis.myleague.ui.backets.BracketsMapViewModel
+import com.jarvis.myleague.ui.backets.BracketsViewModel
+import com.jarvis.myleague.ui.backets.ResultViewModel
 import com.jarvis.myleague.ui.create.CreateTeamViewModel
 import com.jarvis.myleague.ui.detail_team.DetailTeamViewModel
 import com.jarvis.myleague.ui.league.FixturesViewModel
@@ -35,5 +38,17 @@ val viewModelModule = module {
 
     viewModel {
         DetailTeamViewModel()
+    }
+
+    viewModel {
+        BracketsViewModel()
+    }
+
+    viewModel {
+        ResultViewModel()
+    }
+
+    viewModel {
+        BracketsMapViewModel()
     }
 }

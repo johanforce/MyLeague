@@ -8,6 +8,7 @@ import com.jarvis.myleague.data.entities.TeamModel
 import com.jarvis.myleague.data.repository.inteface.LeagueRepository
 import com.jarvis.myleague.data.repository.inteface.MatchesRepository
 import com.jarvis.myleague.data.repository.inteface.TeamRepository
+import com.jarvis.myleague.ui.core.Brackets
 import com.jarvis.myleague.ui.core.RoundRobin
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
@@ -53,4 +54,16 @@ class CreateTeamViewModel : ViewModel(), KoinComponent {
             error.value = e.message
         }
     }
+
+    fun createMatchesCup() = viewModelScope.launch {
+        try {
+            val listTeam = teamRepository.getTeams(leagueCreate.id)
+            val listMatches = Brackets.schedulerTeam(listTeam)
+            matchesRepository.addMatches(listMatches)
+            isCreateMatches.value = true
+        } catch (e: Exception) {
+            error.value = e.message
+        }
+    }
+
 }

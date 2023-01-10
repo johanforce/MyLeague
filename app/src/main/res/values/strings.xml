@@ -10,7 +10,10 @@
     <string name="edit">Edit</string>
     <string name="load">Load</string>
     <string name="league">League</string>
+    <string name="cup">Cup</string>
+    <string name="league_cup">League/Cup:</string>
     <string name="fixtures">Fixtures</string>
+    <string name="bracket">Bracket</string>
     <string name="pos">#</string>
     <string name="team">Team</string>
     <string name="team_">Team :</string>
@@ -33,6 +36,11 @@
     <string name="update_result">Update Result</string>
     <string name="update">Update</string>
     <string name="week_data">Week %s</string>
+    <string name="round_32">Round 32</string>
+    <string name="round_16">Round 16</string>
+    <string name="round_8">Quarters-finals</string>
+    <string name="round_4">Semi-finals</string>
+    <string name="final_">Final</string>
     <string name="double_round">Double Round-robin</string>
     <string name="single_round">Single Round-robin</string>
     <string name="format">Round-robin:</string>

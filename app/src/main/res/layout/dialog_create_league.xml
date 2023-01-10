@@ -28,170 +28,298 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <CheckBox
+                android:id="@+id/cbLeague"
+                android:layout_width="@dimen/px40"
+                android:layout_height="@dimen/px40"
+                app:layout_constraintBottom_toBottomOf="@+id/tvLeague"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tvLeague"
+                app:layout_constraintTop_toTopOf="@+id/tvLeague" />
+
             <com.jarvis.design_system.textview.CustomTextView
-                android:id="@+id/tvName"
+                android:id="@+id/tvLeague"
                 style="@style/T16H20M"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/league"
-                android:textColor="@color/ink_5"
-                app:layout_constraintBottom_toBottomOf="@id/etName"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/etName"
-                app:layout_constraintTop_toTopOf="@id/etName" />
-
-            <com.jarvis.design_system.textview.CustomEditText
-                android:id="@+id/etName"
-                style="@style/T14H20M"
-                android:layout_width="@dimen/px100"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px16"
-                android:background="@color/bg_jx_5"
-                android:ellipsize="end"
-                android:hint="My League"
-                android:imeOptions="actionNext"
-                android:inputType="text"
-                android:maxLength="40"
-                android:maxLines="1"
-                android:paddingVertical="@dimen/px8"
-                android:paddingStart="@dimen/px8"
+                android:text="@string/league"
                 android:textColor="@color/ink_5"
-                android:textColorHint="@color/ink_3"
-                app:layout_constraintLeft_toRightOf="@+id/tvName"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/cbLeague"
+                app:layout_constraintRight_toLeftOf="@+id/cbCup"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
+            <CheckBox
+                android:id="@+id/cbCup"
+                android:layout_width="@dimen/px40"
+                android:layout_height="@dimen/px40"
+                app:layout_constraintBottom_toBottomOf="@+id/tvLeague"
+                app:layout_constraintLeft_toRightOf="@+id/tvLeague"
+                app:layout_constraintRight_toLeftOf="@+id/tvCup"
+                app:layout_constraintTop_toTopOf="@+id/tvLeague" />
+
             <com.jarvis.design_system.textview.CustomTextView
-                android:id="@+id/tvTurn"
+                android:id="@+id/tvCup"
                 style="@style/T16H20M"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/format"
+                android:text="@string/cup"
                 android:textColor="@color/ink_5"
-                app:layout_constraintBottom_toBottomOf="@id/etTurn"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/etTurn"
-                app:layout_constraintTop_toTopOf="@id/etTurn" />
+                app:layout_constraintBaseline_toBaselineOf="@id/tvLeague"
+                app:layout_constraintLeft_toRightOf="@+id/cbCup"
+                app:layout_constraintRight_toRightOf="parent" />
 
-            <com.jarvis.design_system.textview.CustomEditText
-                android:id="@+id/etTurn"
-                style="@style/T14H20M"
-                android:layout_width="@dimen/px100"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clLeague"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:background="@color/bg_jx_5"
-                android:digits="12"
-                android:ellipsize="end"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:maxLength="1"
-                android:maxLines="1"
-                android:paddingVertical="@dimen/px8"
-                android:paddingStart="@dimen/px8"
-                android:text="2"
-                android:textColor="@color/ink_5"
-                app:layout_constraintLeft_toRightOf="@+id/tvTurn"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etName" />
+                android:layout_marginTop="@dimen/px16"
+                android:layout_marginBottom="@dimen/px16"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/btCancel"
+                app:layout_constraintTop_toBottomOf="@+id/tvLeague">
 
-            <com.jarvis.design_system.textview.CustomTextView
-                android:id="@+id/tvWin"
-                style="@style/T16H20M"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/point_win_match"
-                android:textColor="@color/ink_5"
-                app:layout_constraintBottom_toBottomOf="@id/etWin"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/etTurn"
-                app:layout_constraintTop_toTopOf="@id/etWin" />
+                <com.jarvis.design_system.textview.CustomTextView
+                    android:id="@+id/tvName"
+                    style="@style/T16H20M"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/league_cup"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintBottom_toBottomOf="@id/etName"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etName"
+                    app:layout_constraintTop_toTopOf="@id/etName" />
 
-            <com.jarvis.design_system.textview.CustomEditText
-                android:id="@+id/etWin"
-                style="@style/T14H20M"
-                android:layout_width="@dimen/px100"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:background="@color/bg_jx_5"
-                android:digits="1234567890"
-                android:ellipsize="end"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:maxLength="1"
-                android:maxLines="1"
-                android:paddingVertical="@dimen/px8"
-                android:paddingStart="@dimen/px8"
-                android:text="3"
-                android:textColor="@color/ink_5"
-                app:layout_constraintLeft_toRightOf="@+id/tvTurn"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etTurn" />
+                <com.jarvis.design_system.textview.CustomEditText
+                    android:id="@+id/etName"
+                    style="@style/T14H20M"
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_jx_5"
+                    android:ellipsize="end"
+                    android:hint="My League"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLength="40"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/px8"
+                    android:paddingStart="@dimen/px8"
+                    android:textColor="@color/ink_5"
+                    android:textColorHint="@color/ink_3"
+                    app:layout_constraintLeft_toRightOf="@+id/tvName"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <com.jarvis.design_system.textview.CustomTextView
-                android:id="@+id/tvDraw"
-                style="@style/T16H20M"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/point_draw_match"
-                android:textColor="@color/ink_5"
-                app:layout_constraintBottom_toBottomOf="@id/etDraw"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/etTurn"
-                app:layout_constraintTop_toTopOf="@id/etDraw" />
+                <com.jarvis.design_system.textview.CustomTextView
+                    android:id="@+id/tvTurn"
+                    style="@style/T16H20M"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/format"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintBottom_toBottomOf="@id/etTurn"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etTurn"
+                    app:layout_constraintTop_toTopOf="@id/etTurn" />
 
-            <com.jarvis.design_system.textview.CustomEditText
-                android:id="@+id/etDraw"
-                style="@style/T14H20M"
-                android:layout_width="@dimen/px100"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:background="@color/bg_jx_5"
-                android:digits="1234567890"
-                android:ellipsize="end"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:maxLength="1"
-                android:maxLines="1"
-                android:paddingVertical="@dimen/px8"
-                android:paddingStart="@dimen/px8"
-                android:text="1"
-                android:textColor="@color/ink_5"
-                app:layout_constraintLeft_toRightOf="@+id/tvTurn"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etWin" />
+                <com.jarvis.design_system.textview.CustomEditText
+                    android:id="@+id/etTurn"
+                    style="@style/T14H20M"
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:background="@color/bg_jx_5"
+                    android:digits="12"
+                    android:ellipsize="end"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/px8"
+                    android:paddingStart="@dimen/px8"
+                    android:text="2"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintLeft_toRightOf="@+id/tvTurn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etName" />
 
-            <com.jarvis.design_system.textview.CustomTextView
-                android:id="@+id/tvLose"
-                style="@style/T16H20M"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/point_lose_match"
-                android:textColor="@color/ink_5"
-                app:layout_constraintBottom_toBottomOf="@id/etLose"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/etTurn"
-                app:layout_constraintTop_toTopOf="@id/etLose" />
+                <com.jarvis.design_system.textview.CustomTextView
+                    android:id="@+id/tvWin"
+                    style="@style/T16H20M"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/point_win_match"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintBottom_toBottomOf="@id/etWin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etTurn"
+                    app:layout_constraintTop_toTopOf="@id/etWin" />
 
-            <com.jarvis.design_system.textview.CustomEditText
-                android:id="@+id/etLose"
-                style="@style/T14H20M"
-                android:layout_width="@dimen/px100"
+                <com.jarvis.design_system.textview.CustomEditText
+                    android:id="@+id/etWin"
+                    style="@style/T14H20M"
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:background="@color/bg_jx_5"
+                    android:digits="1234567890"
+                    android:ellipsize="end"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/px8"
+                    android:paddingStart="@dimen/px8"
+                    android:text="3"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintLeft_toRightOf="@+id/tvTurn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etTurn" />
+
+                <com.jarvis.design_system.textview.CustomTextView
+                    android:id="@+id/tvDraw"
+                    style="@style/T16H20M"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/point_draw_match"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintBottom_toBottomOf="@id/etDraw"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etTurn"
+                    app:layout_constraintTop_toTopOf="@id/etDraw" />
+
+                <com.jarvis.design_system.textview.CustomEditText
+                    android:id="@+id/etDraw"
+                    style="@style/T14H20M"
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:background="@color/bg_jx_5"
+                    android:digits="1234567890"
+                    android:ellipsize="end"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/px8"
+                    android:paddingStart="@dimen/px8"
+                    android:text="1"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintLeft_toRightOf="@+id/tvTurn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etWin" />
+
+                <com.jarvis.design_system.textview.CustomTextView
+                    android:id="@+id/tvLose"
+                    style="@style/T16H20M"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/point_lose_match"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintBottom_toBottomOf="@id/etLose"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etTurn"
+                    app:layout_constraintTop_toTopOf="@id/etLose" />
+
+                <com.jarvis.design_system.textview.CustomEditText
+                    android:id="@+id/etLose"
+                    style="@style/T14H20M"
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:background="@color/bg_jx_5"
+                    android:digits="1234567890"
+                    android:ellipsize="end"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/px8"
+                    android:paddingStart="@dimen/px8"
+                    android:text="0"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintLeft_toRightOf="@+id/tvLose"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etDraw" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clCup"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:background="@color/bg_jx_5"
-                android:digits="1234567890"
-                android:ellipsize="end"
-                android:imeOptions="actionDone"
-                android:inputType="number"
-                android:maxLength="1"
-                android:maxLines="1"
-                android:paddingVertical="@dimen/px8"
-                android:paddingStart="@dimen/px8"
-                android:text="0"
-                android:textColor="@color/ink_5"
-                app:layout_constraintLeft_toRightOf="@+id/tvLose"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etDraw" />
+                android:layout_marginTop="@dimen/px16"
+                android:layout_marginBottom="@dimen/px16"
+                app:layout_constraintBottom_toTopOf="@+id/btCancel"
+                app:layout_constraintTop_toBottomOf="@+id/tvLeague">
+
+                <com.jarvis.design_system.textview.CustomTextView
+                    android:id="@+id/tvNameCup"
+                    style="@style/T16H20M"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/league_cup"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintBottom_toBottomOf="@id/etNameCup"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etNameCup"
+                    app:layout_constraintTop_toTopOf="@id/etNameCup" />
+
+                <com.jarvis.design_system.textview.CustomEditText
+                    android:id="@+id/etNameCup"
+                    style="@style/T14H20M"
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_jx_5"
+                    android:ellipsize="end"
+                    android:hint="My League"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLength="40"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/px8"
+                    android:paddingStart="@dimen/px8"
+                    android:textColor="@color/ink_5"
+                    android:textColorHint="@color/ink_3"
+                    app:layout_constraintLeft_toRightOf="@+id/tvNameCup"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.jarvis.design_system.textview.CustomTextView
+                    android:id="@+id/tvTeams"
+                    style="@style/T16H20M"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/team_"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintBottom_toBottomOf="@id/etTeam"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etTeam"
+                    app:layout_constraintTop_toTopOf="@id/etTeam" />
+
+                <com.jarvis.design_system.textview.CustomEditText
+                    android:id="@+id/etTeam"
+                    style="@style/T14H20M"
+                    android:layout_width="@dimen/px100"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:background="@color/bg_jx_5"
+                    android:digits="1234567890"
+                    android:ellipsize="end"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/px8"
+                    android:paddingStart="@dimen/px8"
+                    android:text="2"
+                    android:textColor="@color/ink_5"
+                    app:layout_constraintLeft_toRightOf="@+id/tvTeams"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etNameCup" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.jarvis.design_system.button.JxButton
                 android:id="@+id/btCreate"
@@ -204,8 +332,7 @@
                 android:text="@string/create"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/btCancel"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvLose" />
+                app:layout_constraintRight_toRightOf="parent" />
 
             <com.jarvis.design_system.button.JxButton
                 android:id="@+id/btCancel"
@@ -217,8 +344,7 @@
                 android:text="@string/cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/btCreate"
-                app:layout_constraintTop_toBottomOf="@+id/tvLose" />
+                app:layout_constraintRight_toLeftOf="@+id/btCreate" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

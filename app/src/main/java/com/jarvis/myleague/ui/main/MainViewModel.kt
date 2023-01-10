@@ -17,11 +17,12 @@ class MainViewModel : ViewModel(), KoinComponent {
     private val teamRepository: TeamRepository by inject()
     private val matchesRepository: MatchesRepository by inject()
 
-    val isCreateSuccess = MutableLiveData<Boolean>()
     var listLeague = MutableLiveData<List<LeagueModel>>()
     var listTeams = MutableLiveData<List<TeamModel>>()
+    var leagueCreate = LeagueModel()
 
     var nameLeague = ""
+    val isCreateLeagueSuccess = MutableLiveData<Boolean>()
     val idLeagueCreate = MutableLiveData<Long>()
     var idLeagueLoadData = 0L
     val error = MutableLiveData<String>()
@@ -29,8 +30,16 @@ class MainViewModel : ViewModel(), KoinComponent {
     fun createLeague(league: LeagueModel) = viewModelScope.launch {
         try {
             leagueRepository.addLeague(league)
-            idLeagueCreate.value = leagueRepository.getLeague(nameLeague).firstOrNull()?.id
+            isCreateLeagueSuccess.value = true
         } catch (e: Exception) {
+            error.value = e.message
+        }
+    }
+
+    fun getIdLeague() = viewModelScope.launch {
+        try {
+            idLeagueCreate.value = leagueRepository.getLeague(nameLeague).firstOrNull()?.id
+        }catch (e: Exception) {
             error.value = e.message
         }
     }
@@ -45,6 +54,7 @@ class MainViewModel : ViewModel(), KoinComponent {
 
     fun getTeam(idLeague: Long) = viewModelScope.launch {
         try {
+            leagueCreate = leagueRepository.getLeagueToName(idLeague)
             listTeams.value = teamRepository.getTeams(idLeague)
         } catch (e: Exception) {
             error.value = e.message

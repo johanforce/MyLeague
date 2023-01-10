@@ -19,8 +19,8 @@ object RoundRobin {
         val scoreHomeOle = matches.scoreHome
         val scoreAwayOld = matches.scoreAway
 
-        matches.scoreAway = if(scoreAway.isEmpty()) null else scoreAway.toInt()
-        matches.scoreHome = if(scoreHome.isEmpty()) null else scoreHome.toInt()
+        matches.scoreAway = if (scoreAway.isEmpty()) null else scoreAway.toInt()
+        matches.scoreHome = if (scoreHome.isEmpty()) null else scoreHome.toInt()
 
         if (scoreAwayOld != null && scoreHomeOle != null) {
 
@@ -237,3 +237,13 @@ enum class TurnEnum(var valueStr: String, val value: Int) {
     TURN_1("TURN_1", 0),
     TURN_2("TURN_2", 1),
 }
+
+enum class TypeLeagueEnum(var valueStr: String, val value: Int) {
+    LEAGUE("LEAGUE", 0),
+    CUP("CUP", 1),
+    GROUP("GROUP", 2),
+    RUMBLE("RUMBLE", 3),
+}
+
+
+

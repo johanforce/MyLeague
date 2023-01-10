@@ -17,5 +17,6 @@ interface AppPreferenceKey {
 
         const val ID_LEAGUE_CREATE= "ID_LEAGUE_CREATE"
         const val ID_TEAM_CREATE= "ID_TEAM_CREATE"
+        const val BRACKET_DATA= "BRACKET_DATA"
     }
 }
