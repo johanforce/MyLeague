@@ -62,7 +62,19 @@ class CreateTeamActivity :
                 Toast.makeText(this, getString(R.string.please_add_team), Toast.LENGTH_SHORT).show()
                 return@click
             }
-            if (viewModel.listTeam.size == 20) {
+
+            if (viewModel.leagueCreate.type == TypeLeagueEnum.CUP.value &&
+                viewModel.listTeam.size < (viewModel.leagueCreate.teams ?: 0)
+            ) {
+                Toast.makeText(this, getString(R.string.please_add_team), Toast.LENGTH_SHORT).show()
+                return@click
+            }
+
+            if (viewModel.listTeam.size == 20 || (
+                        viewModel.leagueCreate.type == TypeLeagueEnum.CUP.value &&
+                                viewModel.listTeam.size == (viewModel.leagueCreate.teams ?: 0)
+                        )
+            ) {
                 Toast.makeText(
                     this,
                     getString(R.string.out_of_limit_team),
@@ -77,7 +89,7 @@ class CreateTeamActivity :
     private fun addTeam() {
         val textData = binding.etTeam.text.toString()
         if (viewModel.listTeam.find { it == textData }?.isNotEmpty() == true) return
-        if (viewModel.listTeam.size > (viewModel.leagueCreate.teams
+        if (viewModel.listTeam.size >= (viewModel.leagueCreate.teams
                 ?: 0) && viewModel.leagueCreate.type == TypeLeagueEnum.CUP.value
         ) return
         if (textData.isNotEmpty()) {

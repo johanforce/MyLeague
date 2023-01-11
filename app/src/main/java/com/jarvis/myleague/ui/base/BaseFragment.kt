@@ -47,7 +47,7 @@ abstract class BaseFragment<Binding : ViewBinding>(val bindingFactory: (LayoutIn
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val toolbar: JxToolbar? = getToolbar()
-        return toolbar?.onOptionsItemSelected(item) ?: super.onOptionsItemSelected(item!!)
+        return toolbar?.onOptionsItemSelected(item) ?: super.onOptionsItemSelected(item)
     }
 
     protected val binding: Binding by lazy { bindingFactory(layoutInflater) }

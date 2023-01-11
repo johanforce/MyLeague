@@ -223,6 +223,9 @@ object RoundRobin {
         R.drawable.ic_shield_red_thin,
         R.drawable.ic_shield_yellow,
     ) + FlagKit.getListFlagResourceId(MainApplication.applicationContext())
+
+    val listRound = listOf(1, 2)
+    val listTeams = listOf(4, 8, 16, 32)
 }
 
 enum class StatusMatches(var valueStr: String, val value: Int) {
