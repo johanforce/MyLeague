@@ -44,6 +44,7 @@ android {
 }
 
 dependencies {
+    implementation project(':BracketsLib')
     implementation 'com.github.johanforce:Design_System:1.0.4'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -72,5 +73,5 @@ dependencies {
 
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation 'androidx.core:core-splashscreen:1.0.0-alpha01'
-    implementation 'com.github.emil-ep:TournamentBracketLib:1.0.4'
+//    implementation 'com.github.emil-ep:TournamentBracketLib:1.0.4'
 }

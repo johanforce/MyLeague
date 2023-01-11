@@ -16,7 +16,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-@Suppress("unused")
+@Suppress("unused", "DEPRECATION")
 abstract class BaseFragment<Binding : ViewBinding>(val bindingFactory: (LayoutInflater) -> Binding) :
     Fragment(), CoroutineScope {
     var appPreference: AppPreference? = null

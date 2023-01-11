@@ -119,7 +119,7 @@ object RoundRobin {
         val listMatches = mutableListOf<Matches>()
         val numOfTeams = teams.size
         val evenTeams: Array<TeamModel?>
-        var k = 0
+        var k: Int
         if (numOfTeams % 2 == 0) {
             evenTeams = arrayOfNulls(numOfTeams - 1)
             k = 0

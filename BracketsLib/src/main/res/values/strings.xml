@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TournamentBrackets</string>
+    <string name="match_">Match %d</string>
+    <string name="round_">Round %s</string>
+</resources>

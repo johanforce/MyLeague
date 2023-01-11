@@ -75,7 +75,7 @@ class ResultViewModel : ViewModel(), KoinComponent {
                                 .getString(R.string.final_)
                         )
                     )
-                    result.add(list[2])
+                    result.add(list[6])
                 }
                 15 -> {
                     result.add(

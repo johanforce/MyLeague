@@ -227,7 +227,7 @@ class MainActivity :
 
         recyclerView?.adapter = adapterLoad
 
-        adapterLoad.onItemClick = { itemView, item, _ ->
+        adapterLoad.onItemClick = { _, item, _ ->
             viewModel.idLeagueLoadData = item.id
             viewModel.getTeam(item.id)
             alertDialog.dismiss()

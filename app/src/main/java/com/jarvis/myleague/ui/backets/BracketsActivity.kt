@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.jarvis.myleague.ui.backets
 
 import android.content.Intent
@@ -16,7 +18,6 @@ import com.jarvis.myleague.ui.league.TeamFragment
 import com.jarvis.myleague.ui.league.adapter.SlideAdapter
 import com.jarvis.myleague.ui.pref.AppPreferenceKey
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 
 class BracketsActivity :
     BaseActivity<ActivityBracketsTeamBinding, BracketsViewModel>(ActivityBracketsTeamBinding::inflate),
@@ -124,9 +125,11 @@ class BracketsActivity :
         observe(viewModel.isLoadDataSuccess) {
             viewModel.isLoadDataSuccess.value = null
             if (it) {
-                val data = Brackets.showBracketsCup(viewModel.listMatches)
+                val data = Brackets.showBracketsCup(viewModel.listMatches, viewModel.listTeams)
                 if (data.isEmpty()) return@observe
                 appPreference?.put(AppPreferenceKey.KEY_DATA, BracketsModel(data))
+                val intent = Intent(this, BracketsMapActivity::class.java)
+                startActivity(intent)
             }
         }
     }
@@ -141,8 +144,6 @@ class BracketsActivity :
 
     override fun onToolbarAction2Click() {
         viewModel.getData(idLeague)
-        val intent = Intent(this, BracketsMapActivity::class.java)
-        startActivity(intent)
     }
 
 }

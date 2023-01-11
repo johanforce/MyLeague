@@ -1,5 +1,7 @@
 package com.jarvis.myleague.ui.core
 
+import com.jarvis.myleague.MainApplication
+import com.jarvis.myleague.R
 import com.jarvis.myleague.data.entities.Matches
 import com.jarvis.myleague.data.entities.TeamModel
 import com.ventura.bracketslib.model.ColomnData
@@ -7,20 +9,22 @@ import com.ventura.bracketslib.model.CompetitorData
 import com.ventura.bracketslib.model.MatchData
 
 object Brackets {
-    fun showBracketsCup(list: List<Matches>): List<ColomnData> {
+    fun showBracketsCup(list: List<Matches>, listTeam: List<TeamModel>): List<ColomnData> {
         val comData = mutableListOf<CompetitorData>()
 
-        list.map {
+        list.map { match ->
             comData.add(
                 CompetitorData(
-                    it.teamHome,
-                    if (it.scoreHome == null) "-" else it.scoreHome.toString()
+                    listTeam.firstOrNull { it.idTeam == match.idTeamHome }?.logo ?: 0,
+                    match.teamHome,
+                    if (match.scoreHome == null) "-" else match.scoreHome.toString()
                 )
             )
             comData.add(
                 CompetitorData(
-                    it.teamAway,
-                    if (it.scoreAway == null) "-" else it.scoreAway.toString()
+                    listTeam.firstOrNull { it.idTeam == match.idTeamAway }?.logo ?: 0,
+                    match.teamAway,
+                    if (match.scoreAway == null) "-" else match.scoreAway.toString()
                 )
             )
         }
@@ -28,19 +32,30 @@ object Brackets {
         val matchesData = mutableListOf<MatchData>()
         comData.forEachIndexed { index, competitorData ->
             if (index % 2 == 0) {
-                matchesData.add(MatchData(competitorData, comData[index + 1]))
+                matchesData.add(MatchData(index + 1, competitorData, comData[index + 1]))
             }
         }
 
         val columData = mutableListOf<ColomnData>()
         when (list.size) {
             3 -> {
-                columData.add(ColomnData(listOf(matchesData[0], matchesData[1])))
-                columData.add(ColomnData(listOf(matchesData[2])))
+                columData.add(
+                    ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_4),
+                        listOf(matchesData[0], matchesData[1])
+                    )
+                )
+                columData.add(
+                    ColomnData(
+                        MainApplication.applicationContext().getString(R.string.final_),
+                        listOf(matchesData[2])
+                    )
+                )
             }
             7 -> {
                 columData.add(
                     ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_8),
                         listOf(
                             matchesData[0],
                             matchesData[1],
@@ -49,12 +64,23 @@ object Brackets {
                         )
                     )
                 )
-                columData.add(ColomnData(listOf(matchesData[4], matchesData[5])))
-                columData.add(ColomnData(listOf(matchesData[6])))
+                columData.add(
+                    ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_4),
+                        listOf(matchesData[4], matchesData[5])
+                    )
+                )
+                columData.add(
+                    ColomnData(
+                        MainApplication.applicationContext().getString(R.string.final_),
+                        listOf(matchesData[6])
+                    )
+                )
             }
             15 -> {
                 columData.add(
                     ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_8),
                         listOf(
                             matchesData[0],
                             matchesData[1],
@@ -69,6 +95,7 @@ object Brackets {
                 )
                 columData.add(
                     ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_8),
                         listOf(
                             matchesData[8],
                             matchesData[9],
@@ -77,12 +104,23 @@ object Brackets {
                         )
                     )
                 )
-                columData.add(ColomnData(listOf(matchesData[12], matchesData[13])))
-                columData.add(ColomnData(listOf(matchesData[14])))
+                columData.add(
+                    ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_4),
+                        listOf(matchesData[12], matchesData[13])
+                    )
+                )
+                columData.add(
+                    ColomnData(
+                        MainApplication.applicationContext().getString(R.string.final_),
+                        listOf(matchesData[14])
+                    )
+                )
             }
             else -> {
                 columData.add(
                     ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_32),
                         listOf(
                             matchesData[0], matchesData[1], matchesData[2], matchesData[3],
                             matchesData[4], matchesData[5], matchesData[6], matchesData[7],
@@ -93,6 +131,7 @@ object Brackets {
                 )
                 columData.add(
                     ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_16),
                         listOf(
                             matchesData[16], matchesData[17], matchesData[18], matchesData[19],
                             matchesData[20], matchesData[21], matchesData[22], matchesData[23]
@@ -101,6 +140,7 @@ object Brackets {
                 )
                 columData.add(
                     ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_8),
                         listOf(
                             matchesData[24], matchesData[25], matchesData[26], matchesData[27]
                         )
@@ -108,12 +148,18 @@ object Brackets {
                 )
                 columData.add(
                     ColomnData(
+                        MainApplication.applicationContext().getString(R.string.round_4),
                         listOf(
                             matchesData[28], matchesData[29]
                         )
                     )
                 )
-                columData.add(ColomnData(listOf(matchesData[30])))
+                columData.add(
+                    ColomnData(
+                        MainApplication.applicationContext().getString(R.string.final_),
+                        listOf(matchesData[30])
+                    )
+                )
             }
         }
         return columData

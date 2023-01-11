@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/content_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/px16"
+        android:layout_marginEnd="@dimen/px48"
+        android:background="@color/bg_01"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/tvTitle"
+                style="@style/T12H18R"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/play_date"
+                android:gravity="bottom"
+                android:paddingBottom="5dp"
+                android:text="Match title"
+                android:textColor="@color/ink_5"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/play_date"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:alpha="0.3"
+                android:gravity="bottom"
+                android:paddingBottom="5dp"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/team_one_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_layout"
+            android:background="@color/bg_02"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icLogo"
+                android:layout_width="@dimen/px32"
+                android:layout_height="@dimen/px32"
+                android:layout_centerVertical="true"
+                android:layout_marginVertical="@dimen/px8"
+                android:layout_marginStart="@dimen/px16" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/team_one_name"
+                style="@style/T14H20R"
+                android:layout_width="@dimen/px180"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px16"
+                android:layout_toLeftOf="@+id/team_one_score"
+                android:layout_toRightOf="@+id/icLogo"
+                android:singleLine="true"
+                android:text="TBD"
+                android:textColor="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/team_one_score"
+                style="@style/T16H20M"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/px16"
+                android:layout_marginRight="@dimen/px16"
+                android:text="-"
+                android:textColor="@color/ink_5" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px0.5" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/team_two_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view"
+            android:layout_marginTop="@dimen/px1"
+            android:background="@color/bg_02"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icLogo2"
+                android:layout_width="@dimen/px32"
+                android:layout_height="@dimen/px32"
+                android:layout_centerVertical="true"
+                android:layout_marginVertical="@dimen/px8"
+                android:layout_marginLeft="@dimen/px16" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/team_two_name"
+                style="@style/T14H20R"
+                android:layout_width="@dimen/px180"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px16"
+                android:singleLine="true"
+                android:text="TBD"
+                android:textColor="@color/ink_5" />
+
+            <com.jarvis.design_system.textview.CustomTextView
+                android:id="@+id/team_two_score"
+                style="@style/T16H20M"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/px16"
+                android:layout_marginRight="@dimen/px16"
+                android:text="-"
+                android:textColor="@color/ink_5" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>

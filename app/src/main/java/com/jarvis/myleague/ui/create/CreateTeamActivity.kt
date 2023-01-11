@@ -89,7 +89,7 @@ class CreateTeamActivity :
 
     private fun initView() {
         binding.rcvMyMedication.adapter = adapter
-        adapter.onItemClick = { itemView, item, _ ->
+        adapter.onItemClick = { _, item, _ ->
             viewModel.listTeam.remove(item)
             adapter.submitList(viewModel.listTeam)
         }
